@@ -17,6 +17,16 @@ vi:
       message: "Form của bạn có "
       error: " lỗi"
 
+  sessions:
+    new:
+      login: "Đăng nhập"
+      email: "Email"
+      password: "Mật khẩu"
+      newuser: "Thành viên mới? "
+      sign_up_now: "Đăng ký ngay!"
+    create:
+      login_fail: "Email hoặc mật khẩu không chính xác."
+
   activerecord:
     errors:
       models:
