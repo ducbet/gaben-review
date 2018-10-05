@@ -164,7 +164,7 @@ a:focus, a:hover {
 	}
 
 	.wthreeeffect li a:hover {
-		color:#FFF;
+		/*color:#FFF;*/
 		-ms-animation: opacity forwards 1s;
 		-moz-animation: opacity forwards 1s;
 		-webkit-animation: opacity forwards 1s;

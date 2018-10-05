@@ -11,12 +11,24 @@
   <h1 class="uk-heading-bullet" style="color: #fff; margin-top: 0;">
     price: $<%= @game.price %>
   </h1>
-  <h1 class="uk-heading-bullet" style="color: #fff; margin-top: 0;">
-    screenshots:
-    <% @game.screenshots.each do |screenshot| %>
-      <%= image_tag screenshot.picture %>
+
+  <div class="w3portfolioaits-items">
+    <% @game.screenshots.each.with_index(1) do |screenshot, index| %>
+      <div class="<%= "col-md-3 w3portfolioaits-item w3portfolioaits-item-#{index}" %>">
+        <%= link_to(screenshot.picture.url, {class: "example-image-link",
+            :"data-lightbox" => "example-set"}) do %>
+          <div class="grid">
+            <figure class="effect-apollo">
+              <%= image_tag(screenshot.picture.url, alt: "Game Robo") %>
+                <figcaption></figcaption>
+            </figure>
+          </div>
+        <% end %>
+      </div>
     <% end %>
-  </h1>
+    <div class="clearfix"></div>
+  </div>
+
   <h1 class="uk-heading-bullet" style="color: #fff; margin-top: 0;">
     genre:
     <% @game.genres.each do |genre| %>
@@ -32,3 +44,12 @@
     </ol>
   </h1>
 <div>
+
+<!-- Popup-Box-JavaScript -->
+<script src="assets/jquery.chocolat.js"></script>
+<script type="text/javascript">
+  $(function() {
+    $('.w3portfolioaits-item a').Chocolat();
+  });
+</script>
+<!-- //Popup-Box-JavaScript -->
