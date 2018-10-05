@@ -1,0 +1,43 @@
+vi:
+  english: "EN"
+  vietnamese: "VI"
+  app_name: "Chim store"
+
+  users:
+    new:
+      signup: "Đăng ký"
+      name: "Tên"
+      email: "Email"
+      password: "Mật khẩu"
+      password_confirmation: "Xác nhận mật khẩu"
+      signup-btn: "Tạo tài khoản"
+
+  shared:
+    error_messages:
+      message: "Form của bạn có "
+      error: " lỗi"
+
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            name:
+              blank: "Tên không được để trống"
+            email:
+              blank: "Email không được để trống"
+              invalid: "Email không hợp lệ"
+              taken: "Email đã tồn tại"
+            password:
+              blank: "Mật khẩu không được để trống"
+              too_short: "Mật khẩu quá ngắn"
+            password_confirmation:
+              confirmation: "Mật khẩu không trùng khớp"
+            current_password:
+              blank: "Xin hãy nhập mật khẩu hiện tại"
+            reset_password_token:
+              invalid: "Đã thiết lập mật khẩu mới"
+
+  flash:
+    welcome: "Chào mừng bạn đến với Chim store"
+    create_failed: "Tạo người dùng thất bại"

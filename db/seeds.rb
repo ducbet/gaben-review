@@ -1,6 +1,7 @@
 user1 = User.create! nick_name: Faker::Name.middle_name,
                       email: "a@a.a",
-                      picture: Faker::Avatar.image
+                      picture: Faker::Avatar.image,
+                      password: "asdasd"
 
 20.times do
   game = Game.create! name: Faker::Esport.game,
