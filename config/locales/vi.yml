@@ -1,7 +1,24 @@
 vi:
   english: "EN"
   vietnamese: "VI"
-  app_name: "Chim store"
+  web_name: "Chim store"
+
+  layouts:
+    header:
+      home: "Trang chủ"
+      help: "Trợ giúp"
+      login: "Đăng nhập"
+      signup: "Đăng kí"
+      profile: "Hồ sơ cá nhân"
+      settings: "Cài đặt"
+      logout: "Đăng xuất"
+      users: "Người dùng"
+      about: "Giới thiệu"
+      platforms: "Nền tảng"
+      collection: "COLLECTION"
+      news: "Tin tức"
+      portfolio: "PORTFOLIO"
+      contact: "Liên hệ"
 
   users:
     new:

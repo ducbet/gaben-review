@@ -1,7 +1,24 @@
 en:
   english: "EN"
   vietnamese: "VI"
-  app_name: "Chim store"
+  web_name: "Chim store"
+
+  layouts:
+    header:
+      home: "Home"
+      help: "Help"
+      login: "Login"
+      signup: "Sign up"
+      profile: "Profile"
+      settings: "Settings"
+      logout: "Logout"
+      users: "Users"
+      about: "About"
+      platforms: "PLATFORMS"
+      collection: "COLLECTION"
+      news: "NEWS"
+      portfolio: "PORTFOLIO"
+      contact: "CONTACT"
 
   users:
     new:
