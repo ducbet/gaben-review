@@ -24,8 +24,7 @@ en:
       password: "Password"
       newuser: "New user? "
       sign_up_now: "Sign up now!"
-    create:
-      login_fail: "Invalid email/password combination."
+      remember: "Remember me"
 
   activerecord:
     errors:
@@ -50,3 +49,4 @@ en:
   flash:
     welcome: "Welcome to Chim store"
     create_failed: "Fail to create user"
+    login_fail: "Invalid email/password combination."
