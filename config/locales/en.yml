@@ -17,6 +17,16 @@ en:
       message: "The form contains "
       error: " errors"
 
+  sessions:
+    new:
+      login: "Login"
+      email: "Email"
+      password: "Password"
+      newuser: "New user? "
+      sign_up_now: "Sign up now!"
+    create:
+      login_fail: "Invalid email/password combination."
+
   activerecord:
     errors:
       models:
