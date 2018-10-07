@@ -1,24 +1,41 @@
 <% provide :title, t("sessions.new.login") %>
-<h1><%= t "sessions.new.login" %></h1>
 
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= form_for :session, url: login_path do |f| %>
-
-      <%= f.label :email, t(".email") %>
-      <%= f.email_field :email, class: "form-control" %>
-
-      <%= f.label :password, t(".password") %>
-      <%= f.password_field :password, class: "form-control" %>
-
-      <%= f.label :remember_me, class: "checkbox inline" do %>
-        <%= f.check_box :remember_me %>
-        <span><%= t ".remember" %></span>
-      <% end %>
-
-      <%= f.submit t("sessions.new.login"), class: "btn btn-primary" %>
+<div class="uk-card uk-card-body" style="color: #fff;">
+  <div class="uk-card-title">
+    <div><%= t "sessions.new.login" %></div>
+  </div>
+  <div class="uk-card-body">
+    <%= form_for :session, url: login_path, class: "uk-form-stacked" do |f| %>
+      <div class="uk-margin">
+        <%= f.label :email, t(".email") %>
+        <div class="uk-form-controls">
+          <div class="uk-inline">
+            <span class="uk-form-icon" uk-icon="icon: mail"></span>
+            <%= f.email_field :email, class: "uk-input uk-form-width-large" %>
+          </div>
+        </div>
+      </div>
+      <div class="uk-margin">
+        <%= f.label :password, t(".password") %>
+        <div class="uk-form-controls">
+          <div class="uk-inline">
+            <span class="uk-form-icon" uk-icon="icon: lock"></span>
+            <%= f.password_field :password, class: "uk-input uk-form-width-large" %>
+          </div>
+        </div>
+      </div>
+      <div class="uk-margin">
+        <%= f.label :remember_me, class: "checkbox inline" do %>
+          <div class="uk-form-controls">
+            <%= f.check_box :remember_me, class: "uk-radio" %>
+            <span><%= t ".remember" %></span>
+          </div>
+        <% end %>
+      </div>
+      <div class="uk-margin">
+        <%= f.submit t("sessions.new.login"), class: "uk-button uk-button-primary" %>
+      </div>
     <% end %>
-
     <p><%= t ".newuser" %><%= link_to t(".sign_up_now"), signup_path %></p>
   </div>
 </div>
