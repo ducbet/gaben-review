@@ -1,18 +1,55 @@
 <% provide :title, t(".signup") %>
-<h1><%= t "app_name" %></h1>
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= form_for @user, url: signup_path do |f| %>
-      <%= render "shared/error_messages" %>
-      <%= f.label :nick_name, t(".name") %>
-      <%= f.text_field :nick_name, class: "form-control" %>
-       <%= f.label :email, t(".email") %>
-      <%= f.email_field :email, class: "form-control" %>
-       <%= f.label :password, t(".password") %>
-      <%= f.password_field :password, class: "form-control" %>
-       <%= f.label :password_confirmation, t(".password_confirmation")%>
-      <%= f.password_field :password_confirmation, class: "form-control" %>
-       <%= f.submit t(".signup-btn"), class: "btn btn-primary" %>
+
+<div class="uk-card uk-card-body" style="color: #fff;">
+  <div class="uk-card-title">
+    <div><%= t "app_name" %></div>
+  </div>
+  <div class="uk-card-body">
+    <%= form_for @user, url: signup_path, class: "uk-form-stacked" do |f| %>
+      <div class="uk-margin">
+        <div class="uk-form-controls">
+          <%= render "shared/error_messages" %>
+        </div>
+      </div>
+      <div class="uk-margin">
+        <%= f.label :nick_name, t(".name") %>
+        <div class="uk-form-controls">
+          <div class="uk-inline">
+            <span class="uk-form-icon" uk-icon="icon: user"></span>
+            <%= f.text_field :nick_name, class: "uk-input uk-form-width-large" %>
+          </div>
+        </div>
+      </div>
+      <div class="uk-margin">
+        <%= f.label :email, t(".email") %>
+        <div class="uk-form-controls">
+          <div class="uk-inline">
+            <span class="uk-form-icon" uk-icon="icon: mail"></span>
+            <%= f.email_field :email, class: "uk-input uk-form-width-large" %>
+          </div>
+        </div>
+      </div>
+      <div class="uk-margin">
+        <%= f.label :password, t(".password") %>
+        <div class="uk-form-controls">
+          <div class="uk-inline">
+            <span class="uk-form-icon" uk-icon="icon: lock"></span>
+            <%= f.password_field :password, class: "uk-input uk-form-width-large" %>
+          </div>
+        </div>
+      </div>
+      <div class="uk-margin">
+        <%= f.label :password_confirmation, t(".password_confirmation")%>
+        <div class="uk-form-controls">
+          <div class="uk-inline">
+            <span class="uk-form-icon" uk-icon="icon: lock"></span>
+            <%= f.password_field :password_confirmation, class: "uk-input uk-form-width-large" %>
+          </div>
+        </div>
+      </div>
+      <div class="uk-margin">
+        <%= f.submit t(".signup-btn"), class: "uk-button uk-button-primary" %>
+      </div>
     <% end %>
   </div>
 </div>
