@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     get "sessions/new"
     post "/login", to: "sessions#create"
     post "/signup", to: "users#create"
-    resources :games, only: [:index]
+    resources :games, only: [:index, :show]
     resources :users, only: [:show]
     root "games#index"
   end
