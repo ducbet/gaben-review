@@ -31,7 +31,7 @@ vi:
       models:
         user:
           attributes:
-            name:
+            nick_name:
               blank: "Tên không được để trống"
             email:
               blank: "Email không được để trống"

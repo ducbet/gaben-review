@@ -31,7 +31,7 @@ en:
       models:
         user:
           attributes:
-            name:
+            nick_name:
               blank: "Name can't be blank"
             email:
               blank: "Email can't be blank"
