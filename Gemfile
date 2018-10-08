@@ -39,9 +39,11 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 gem "bcrypt"
+gem "carrierwave"
 gem "config"
-gem "kaminari"
 gem "faker"
+gem "kaminari"
+gem "mini_magick"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

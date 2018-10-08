@@ -1,14 +1,14 @@
-<%= render "static_pages/slider" %>
+<%= render "static_pages/slider", support: @support %>
+
+<%= render "static_pages/tabs", support: @support %>
 
 <%= render "static_pages/about" %>
 
 <%= render "static_pages/platforms" %>
 
-<%= render "static_pages/tabs" %>
-
 <%= render "static_pages/news" %>
 
-<%= render "static_pages/portfolio" %>
+<%= render "static_pages/portfolio", support: @support %>
 
 <%= render "static_pages/stats" %>
 
@@ -20,7 +20,7 @@
 
 <!-- Custom-JavaScript-File-Links -->
 
-    <!-- Default-JavaScript -->
+<!-- Default-JavaScript -->
 <script type="text/javascript" src="assets/jquery-2.1.4.min.js"></script>
 <!-- Bootstrap-JavaScript -->
 <script type="text/javascript" src="assets/bootstrap.min.js"></script>

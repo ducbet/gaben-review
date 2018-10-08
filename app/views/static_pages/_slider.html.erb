@@ -1,19 +1,11 @@
 <div class="slider">
   <ul class="rslides" id="slider">
-    <li class="first-slide w3ls">
-      <img src="assets/slide-1.jpg" alt="Game Robo">
-    </li>
-    <li class="second-slide aits">
-      <img src="assets/slide-2.jpg" alt="Game Robo">
-    </li>
-    <li class="third-slide w3-agileits">
-      <img src="assets/slide-3.jpg" alt="Game Robo">
-    </li>
-    <li class="fourth-slide agileinfo">
-      <img src="assets/slide-4.jpg" alt="Game Robo">
-    </li>
-    <li class="fifth-slide wthree">
-      <img src="assets/slide-5.jpg" alt="Game Robo">
-    </li>
+    <% support.game_popular.each do |game| %>
+      <li class="second-slide aits">
+        <%= link_to game do %>
+          <%= image_tag(game.picture.url, alt: "Game Robo") %>
+        <% end %>
+      </li>
+    <% end %>
   </ul>
 </div>
