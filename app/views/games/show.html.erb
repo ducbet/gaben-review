@@ -1,0 +1,34 @@
+<% provide :title, @game.name %>
+
+<div class="uk-margin">
+  <br>
+  <h1 class="uk-heading-bullet" style="color: #fff">
+    name: <%= @game.name %>
+  </h1>
+  <h1 class="uk-heading-bullet" style="color: #fff; margin-top: 0;">
+    details: <%= @game.details %>
+  </h1>
+  <h1 class="uk-heading-bullet" style="color: #fff; margin-top: 0;">
+    price: $<%= @game.price %>
+  </h1>
+  <h1 class="uk-heading-bullet" style="color: #fff; margin-top: 0;">
+    screenshots:
+    <% @game.screenshots.each do |screenshot| %>
+      <%= image_tag screenshot.picture %>
+    <% end %>
+  </h1>
+  <h1 class="uk-heading-bullet" style="color: #fff; margin-top: 0;">
+    genre:
+    <% @game.genres.each do |genre| %>
+      <%= genre.genre %>
+    <% end %>
+  </h1>
+  <h1 class="uk-heading-bullet" style="color: #fff; margin-top: 0;">
+    reviews:
+    <ol>
+      <% @game.reviews.each do |review| %>
+        <li>score: <%= review.score %>, content: <%= review.content %></li>
+      <% end %>
+    </ol>
+  </h1>
+<div>
