@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     post "/login", to: "sessions#create"
     post "/signup", to: "users#create"
     resources :games, only: [:index, :show]
-    resources :users, only: [:show]
+    resources :users, only: [:show, :edit, :update]
     get "static_pages/home"
     root "static_pages#home"
   end

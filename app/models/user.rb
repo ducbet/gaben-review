@@ -42,7 +42,12 @@ class User < ApplicationRecord
     end
   end
 
+  def current_user? current_user
+    self == current_user
+  end
+
   private
+
   def email_downcase
     self.email = email.downcase
   end
