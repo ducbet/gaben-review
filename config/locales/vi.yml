@@ -1,7 +1,7 @@
 vi:
   english: "EN"
   vietnamese: "VI"
-  web_name: "GABEN REVIEW"
+  web_name: "GABEN"
 
   layouts:
     header:
@@ -17,7 +17,7 @@ vi:
       platforms: "Nền tảng"
       collection: "COLLECTION"
       news: "Tin tức"
-      portfolio: "PORTFOLIO"
+      portfolio: "Bộ sưu tập"
       contact: "Liên hệ"
 
   users:
