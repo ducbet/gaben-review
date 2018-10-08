@@ -1,33 +1,60 @@
-<header>
-  <nav class="uk-navbar-container" uk-navbar>
-    <div class="uk-navbar-left">
-      <a class="uk-navbar-item uk-logo" href="#">Logo</a>
-    </div>
-    <div class="uk-navbar-right">
-      <ul class="uk-navbar-nav">
-          <li class="uk-active"><%= link_to t(".home"), root_path %></a></li>
-          <li class="uk-active"><%= link_to t(".about"), "#" %></li>
-          <li class="uk-active"><%= link_to t(".contact"), "#" %></li>
-          <% if logged_in? %>
-            <li class="uk-active"><%= link_to t(".users"), "#" %></li>
-            <li class="uk-active">
-              <a href="#">
-                <%= t ".account" %> <b class="caret"></b>
-              </a>
-              <div class="uk-navbar-dropdown">
-                <ul class="uk-nav uk-navbar-dropdown-nav">
-                  <li class="uk-active"><%= link_to t(".profile"), current_user %></li>
-                  <li class="uk-active"><%= link_to t(".settings"), "#" %></li>
-                  <li class="uk-active">
-                    <%= link_to t("logout"), logout_path, method: :delete %>
-                  </li>
-                </ul>
-              </div>
-            </li>
-          <% else %>
-            <li class="uk-active"><%= link_to t(".login"), login_path %></li>
-          <% end %>
-      </ul>
-    </div>
-  </nav>
-</header>
+<div class="agileheader" id="agileitshome">
+  <!-- Navigation -->
+  <div class="w3lsnavigation">
+    <nav class="navbar navbar-inverse agilehover-effect wthreeeffect navbar-default">
+
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <!-- Logo -->
+        <div class="logo">
+          <%= link_to t("web_name"), root_path, class: "navbar-brand logo-w3l button" %>
+        </div>
+        <!-- //Logo -->
+      </div>
+
+      <div id="navbar" class="navbar-collapse navbar-right collapse">
+        <ul class="nav navbar-nav navbar-right cross-effect" id="cross-effect">
+          <li><%= link_to t(".about"), "#w3lsaboutaits", {class: "scroll"} %></li>
+          <li><%= link_to t(".platforms"), "#agileinfoplatforms", {class: "scroll"} %></li>
+          <li><%= link_to t(".collection"), "#wthreetabsaits", {class: "scroll"} %></li>
+          <li><%= link_to t(".news"), "#wthreeblogsaits", {class: "scroll"} %></li>
+          <li><%= link_to t(".portfolio"), "#w3portfolioaits", {class: "scroll"} %></li>
+          <li><%= link_to t(".contact"), "#agilecontactw3ls", {class: "scroll"} %></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Login<b class="caret"></b></a>
+            <div class="dropdown-menu">
+              <form action="#" method="post">
+                <div id="login" class="animate w3loginagile form">
+                  <h3>Login</h3>
+                  <input type="text" Name="Userame" placeholder="Username" required="">
+                  <input type="password" Name="Password" placeholder="Password" required="">
+                  <div class="send-button wthree agileits">
+                    <input type="submit" value="Login">
+                  </div>
+                  <div class="clearfix"></div>
+                </div>
+              </form>
+              <form action="#" method="post">
+                <div id="register" class="animate w3registeragile form">
+                  <h3>Sign Up</h3>
+                  <input type="text" Name="Name" placeholder="Name" required="">
+                  <input type="text" Name="Email" placeholder="Email" required="">
+                  <input type="password" Name="Password" placeholder="Password" required="">
+                  <input type="text" Name="Phone Number" placeholder="Phone Number" required="">
+                  <div class="send-button wthree agileits">
+                    <input type="submit" value="Sign Up">
+                  </div>
+                </div>
+              </form>
+            </div>
+          </li>
+        </ul>
+      </div><!-- //Navbar-Collapse -->
+    </nav>
+  </div>
+</div>
