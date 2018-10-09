@@ -1,7 +1,7 @@
 en:
   english: "EN"
   vietnamese: "VI"
-  web_name: "GABEN REVIEW"
+  web_name: "GABEN"
 
   layouts:
     header:
@@ -17,7 +17,7 @@ en:
       platforms: "PLATFORMS"
       collection: "COLLECTION"
       news: "NEWS"
-      portfolio: "PORTFOLIO"
+      portfolio: "GALLERY"
       contact: "CONTACT"
 
   users:
