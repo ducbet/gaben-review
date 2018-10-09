@@ -1,10 +1,5 @@
 <% provide :title, t("sessions.new.login") %>
 
-<!-- fake, ai sua lai css ho cai nhe -->
-  <br>
-  <br>
-  <br>
-
 <div class="uk-card uk-card-body" style="color: #fff;">
   <div class="uk-card-title">
     <h1><%= t "sessions.new.login" %></h1>
@@ -32,13 +27,15 @@
       <div class="uk-margin">
         <%= f.label :remember_me, class: "checkbox inline" do %>
           <div class="uk-form-controls">
-            <%= f.check_box :remember_me, class: "uk-radio" %>
-            <span><%= t ".remember" %></span>
+            <label>
+              <%= f.check_box :remember_me, class: "uk-checkbox" %>
+              <span><%= t ".remember" %></span>
+            </label>
           </div>
         <% end %>
       </div>
       <div class="uk-margin">
-        <%= f.submit t("sessions.new.login"), class: "uk-button uk-button-primary" %>
+        <%= f.submit t("sessions.new.login"), class: "uk-button uk-button-primary", style: "font-size:1em" %>
       </div>
     <% end %>
     <p><%= t ".newuser" %><%= link_to t(".sign_up_now"), signup_path %></p>
