@@ -1,6 +1,6 @@
 <div class="agileheader" id="agileitshome">
   <!-- Navigation -->
-  <div class="w3lsnavigation">
+  <div class="w3lsnavigation" style="position: inherit;">
     <nav class="navbar navbar-inverse agilehover-effect wthreeeffect navbar-default">
 
       <div class="navbar-header">
@@ -31,13 +31,13 @@
                 <%= t ".account" %> <b class="caret"></b>
               </a>
               <ul class="dropdown-menu">
-                <li><%= link_to t(".profile"), current_user, {style: "color:#FFF;"} %></li>
+                <li><%= link_to t(".profile"), current_user %></li>
                 <li>
-                  <%= link_to t(".settings"), edit_user_path(current_user), {style: "color:#FFF;"} %>
+                  <%= link_to t(".settings"), edit_user_path(current_user) %>
                 </li>
                 <li class="divider"></li>
                 <li>
-                  <%= link_to t("logout"), logout_path, {method: :delete, style: "color:#FFF;"} %>
+                  <%= link_to t("logout"), logout_path, {method: :delete} %>
                 </li>
               </ul>
             </li>
