@@ -1,0 +1,55 @@
+<% provide :title, @game.name %>
+
+<div class="uk-margin">
+  <br>
+  <h1 class="uk-heading-bullet" style="color: #fff">
+    name: <%= @game.name %>
+  </h1>
+  <h1 class="uk-heading-bullet" style="color: #fff; margin-top: 0;">
+    details: <%= @game.details %>
+  </h1>
+  <h1 class="uk-heading-bullet" style="color: #fff; margin-top: 0;">
+    price: $<%= @game.price %>
+  </h1>
+
+  <div class="w3portfolioaits-items">
+    <% @game.screenshots.each.with_index(1) do |screenshot, index| %>
+      <div class="<%= "col-md-3 w3portfolioaits-item w3portfolioaits-item-#{index}" %>">
+        <%= link_to(screenshot.picture.url, {class: "example-image-link",
+            :"data-lightbox" => "example-set"}) do %>
+          <div class="grid">
+            <figure class="effect-apollo">
+              <%= image_tag(screenshot.picture.url, alt: "Game Robo") %>
+                <figcaption></figcaption>
+            </figure>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+    <div class="clearfix"></div>
+  </div>
+
+  <h1 class="uk-heading-bullet" style="color: #fff; margin-top: 0;">
+    genre:
+    <% @game.genres.each do |genre| %>
+      <%= genre.genre %>
+    <% end %>
+  </h1>
+  <h1 class="uk-heading-bullet" style="color: #fff; margin-top: 0;">
+    reviews:
+    <ol>
+      <% @game.reviews.each do |review| %>
+        <li>score: <%= review.score %>, content: <%= review.content %></li>
+      <% end %>
+    </ol>
+  </h1>
+<div>
+
+<!-- Popup-Box-JavaScript -->
+<script src="assets/jquery.chocolat.js"></script>
+<script type="text/javascript">
+  $(function() {
+    $('.w3portfolioaits-item a').Chocolat();
+  });
+</script>
+<!-- //Popup-Box-JavaScript -->

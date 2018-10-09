@@ -1,0 +1,29 @@
+<ul>
+  <%= image_tag game.picture.url %>
+
+  <li>name: <%= game.name %>
+
+  <li>details: <%= game.details %></li>
+
+  <li>genre:
+    <% game.genres.each do |genre| %>
+      <%= genre.genre %>
+    <% end %>
+  </li>
+
+  <li>price: $<%= game.price %></li>
+
+  <% game.screenshots.each do |screenshot| %>
+    <%= image_tag screenshot.picture %>
+  <% end %>
+
+  <li>reviews:
+    <ol>
+      <% game.reviews.each do |review| %>
+        <li>score: <%= review.score %>, content: <%= review.content %></li>
+      <% end %>
+    </ol>
+  </li>
+
+</ul>
+

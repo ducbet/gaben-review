@@ -1,0 +1,6 @@
+<% flash.each do |message_type, message| %>
+  <%= content_tag :div, class:"uk-alert uk-alert-#{message_type}" do -%>
+    <a class="uk-alert-close" uk-close></a>
+    <%= content_tag :div, message %>
+  <% end -%>
+<% end %>

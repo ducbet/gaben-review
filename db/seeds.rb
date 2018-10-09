@@ -1,7 +1,27 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+user1 = User.create! nick_name: Faker::Name.middle_name,
+                      email: "a@a.a",
+                      picture: Faker::Avatar.image,
+                      password: "asdasd"
+
+9.times do |n|
+  game = Game.create! name: Faker::Esport.game,
+                details: Faker::Movie.quote,
+                price: Faker::Number.decimal(2, 2),
+                picture: Rails.root.join("app/assets/images/slide-#{n%5+1}.jpg").open
+
+  game.genres.create! genre: 0
+  game.genres.create! genre: 1
+
+  game.reviews.create! user_id: user1.id,
+                content: Faker::Lorem.sentence(5),
+                score: Faker::Number.between(1, 10)
+  game.reviews.create! user_id: user1.id,
+                content: Faker::Lorem.sentence(5),
+                score: Faker::Number.between(1, 10)
+  game.reviews.create! user_id: user1.id,
+                content: Faker::Lorem.sentence(5),
+                score: Faker::Number.between(1, 10)
+
+  game.screenshots.create! picture: Rails.root.join("app/assets/images/new-#{n%10+1}.jpg").open
+  game.screenshots.create! picture: Rails.root.join("app/assets/images/popular-#{n%10+1}.jpg").open
+end

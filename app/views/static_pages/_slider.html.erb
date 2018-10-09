@@ -1,0 +1,11 @@
+<div class="slider">
+  <ul class="rslides" id="slider">
+    <% support.game_popular.each do |game| %>
+      <li class="second-slide aits">
+        <%= link_to game do %>
+          <%= image_tag(game.picture.url, alt: "Game Robo") %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</div>
