@@ -1,0 +1,20 @@
+<% provide :title, t(".edit") %>
+<% provide :button_text, t(".save") %>
+<% provide :url, user_path(current_user) %>
+
+<!-- fake, ai sua lai css ho cai nhe -->
+  <br>
+  <br>
+<div class="uk-card uk-card-body" style="color: #fff;">
+  <div class="uk-card-title">
+    <div><%= t ".update" %></div>
+  </div>
+  <div class="uk-card-body">
+    <%= render "form" %>
+    <div style="width: 100px">
+      <%= gravatar_for @user %>
+    </div>
+    <%= link_to t(".change"), "http://gravatar.com/emails",
+    target:"_blank", rel:"noopener" %>
+  </div>
+</div>

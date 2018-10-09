@@ -1,0 +1,46 @@
+<%= form_for @user, url: yield(:url), class: "uk-form-stacked" do |f| %>
+  <div class="uk-margin">
+    <div class="uk-form-controls">
+      <%= render "shared/error_messages", object: @user %>
+    </div>
+  </div>
+  <div class="uk-margin">
+    <%= f.label :nick_name, t("users.name") %>
+    <div class="uk-form-controls">
+      <div class="uk-inline">
+        <span class="uk-form-icon" uk-icon="icon: user"></span>
+        <%= f.text_field :nick_name, class: "uk-input uk-form-width-large" %>
+      </div>
+    </div>
+  </div>
+  <div class="uk-margin">
+    <%= f.label :email, t("users.email") %>
+    <div class="uk-form-controls">
+      <div class="uk-inline">
+        <span class="uk-form-icon" uk-icon="icon: mail"></span>
+        <%= f.email_field :email, class: "uk-input uk-form-width-large" %>
+      </div>
+    </div>
+  </div>
+  <div class="uk-margin">
+    <%= f.label :password, t("users.password") %>
+    <div class="uk-form-controls">
+      <div class="uk-inline">
+        <span class="uk-form-icon" uk-icon="icon: lock"></span>
+        <%= f.password_field :password, class: "uk-input uk-form-width-large" %>
+      </div>
+    </div>
+  </div>
+  <div class="uk-margin">
+    <%= f.label :password_confirmation, t("users.confirm")%>
+    <div class="uk-form-controls">
+      <div class="uk-inline">
+        <span class="uk-form-icon" uk-icon="icon: lock"></span>
+        <%= f.password_field :password_confirmation, class: "uk-input uk-form-width-large" %>
+      </div>
+    </div>
+  </div>
+  <div class="uk-margin">
+    <%= f.submit yield(:button_text), class: "uk-button uk-button-primary" %>
+  </div>
+<% end %>

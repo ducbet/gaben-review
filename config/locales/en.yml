@@ -21,6 +21,13 @@ en:
       contact: "CONTACT"
 
   users:
+    name: "Name"
+    email: "Email"
+    pass: "Password"
+    confirm: "Confirmation"
+    show:
+      profile: "Profile"
+      edit: "Edit profile"
     new:
       signup: "Sign up"
       name: "Name"
@@ -28,6 +35,13 @@ en:
       password: "Password"
       password_confirmation: "Password Confirmation"
       signup-btn: "Create my account"
+      have_acc: "Have account?"
+      login: "Login"
+    edit:
+      edit: "Edit user"
+      save: "Save changes"
+      update: "Update your profile"
+      change: "Change"
 
   shared:
     error_messages:
@@ -67,3 +81,4 @@ en:
     welcome: "Welcome to Chim store"
     create_failed: "Fail to create user"
     login_fail: "Invalid email/password combination."
+    updated: "Profile updated."

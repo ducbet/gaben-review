@@ -25,34 +25,7 @@
           <li><%= link_to t(".news"), "#wthreeblogsaits", {class: "scroll"} %></li>
           <li><%= link_to t(".portfolio"), "#w3portfolioaits", {class: "scroll"} %></li>
           <li><%= link_to t(".contact"), "#agilecontactw3ls", {class: "scroll"} %></li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Login<b class="caret"></b></a>
-            <div class="dropdown-menu">
-              <form action="#" method="post">
-                <div id="login" class="animate w3loginagile form">
-                  <h3>Login</h3>
-                  <input type="text" Name="Userame" placeholder="Username" required="">
-                  <input type="password" Name="Password" placeholder="Password" required="">
-                  <div class="send-button wthree agileits">
-                    <input type="submit" value="Login">
-                  </div>
-                  <div class="clearfix"></div>
-                </div>
-              </form>
-              <form action="#" method="post">
-                <div id="register" class="animate w3registeragile form">
-                  <h3>Sign Up</h3>
-                  <input type="text" Name="Name" placeholder="Name" required="">
-                  <input type="text" Name="Email" placeholder="Email" required="">
-                  <input type="password" Name="Password" placeholder="Password" required="">
-                  <input type="text" Name="Phone Number" placeholder="Phone Number" required="">
-                  <div class="send-button wthree agileits">
-                    <input type="submit" value="Sign Up">
-                  </div>
-                </div>
-              </form>
-            </div>
-          </li>
+          <li><%= link_to t(".login"), login_path %></li>
         </ul>
       </div><!-- //Navbar-Collapse -->
     </nav>
