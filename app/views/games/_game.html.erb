@@ -1,5 +1,5 @@
-<ul>
-  <%= image_tag game.picture.url %>
+<ul style="color: white">
+  <%= image_tag game.picture.url, class: "games_index_image" %>
 
   <li>name: <%= game.name %>
 
@@ -12,10 +12,6 @@
   </li>
 
   <li>price: $<%= game.price %></li>
-
-  <% game.screenshots.each do |screenshot| %>
-    <%= image_tag screenshot.picture %>
-  <% end %>
 
   <li>reviews:
     <ol>
