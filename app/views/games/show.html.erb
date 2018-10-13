@@ -6,20 +6,19 @@
   </h1>
   <div class="container" id="content">
     <div id="info">
-      <h1 style="color: #fff; margin-top: 20px; text-align: left;">Details</h1>
+      <h1 style="color: #fff; margin-top: 20px; text-align: left;"><%= t (".info") %></h1>
       <br><h2 style="color: #fff; text-align: left"><%= @game.details %></br></h2>
-      <h1 style="color: #fff; margin-top: 20px; text-align: left;">Price</h1>
+      <h1 style="color: #fff; margin-top: 20px; text-align: left;"><%= t (".price") %></h1>
       <br><h2 style="color: #fff; text-align: left">$<%= @game.price %></br></h2>
-      <h1 style="color: #fff; margin-top: 20px; text-align: left;">Gerne
+      <h1 style="color: #fff; margin-top: 20px; text-align: left;"><%= t (".genre") %></h1>
       <br>
         <h2 style="color: #fff; text-align: left">
           <% @game.genres.each do |genre| %>
           <%= genre.genre %>
           <% end %>
-        </h2
+        </h2>
       </br>
-      </h1>
-      <h1 style="color: #fff; margin-top: 20px; text-align: left;">Average Score
+      <h1 style="color: #fff; margin-top: 20px; text-align: left;"><%= t (".avg_score") %></h1>
       <br>
         <h2 style="color: #fff; text-align: left"><%= @game.count_average_score %></br></h2>
       </br>

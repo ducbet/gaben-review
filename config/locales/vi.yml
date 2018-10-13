@@ -82,3 +82,9 @@ vi:
     create_failed: "Tạo người dùng thất bại"
     login_fail: "Email hoặc mật khẩu không chính xác."
     updated: "Đã cập nhật hồ sơ."
+  games:
+    show:
+      info: "Thông tin game"
+      price: "Giá"
+      genre: "Thể loại"
+      avg_score: "Điểm trung bình"
