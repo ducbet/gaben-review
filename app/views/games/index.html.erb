@@ -1,3 +1,19 @@
+<%= search_form_for @q do |f| %>
+
+  <%= f.label :name_or_details %>
+  <%= f.search_field :name_or_details_cont %>
+
+  <%= f.label :genre %>
+  <%= f.search_field :genres_genre_cont %>
+
+  <%= f.submit %>
+<% end %>
+
+<%= link_to "Clear Search", request.path, class:"cancel-button" %>
+
+<%= sort_link(@q, :name) %>
+<%= sort_link(@q, :price) %>
+
 <%= paginate @games %>
 <%= render @games %>
 <%= paginate @games %>
