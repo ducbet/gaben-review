@@ -1,13 +1,24 @@
-<%= search_form_for @q do |f| %>
+<%= search_form_for @q, id: "search_form" do |f| %>
+
+  <%= f.hidden_field :genres_genre_cont, id: "search_genres" %>
 
   <%= f.label :name_or_details %>
   <%= f.search_field :name_or_details_cont %>
 
-  <%= f.label :genre %>
-  <%= f.search_field :genres_genre_cont %>
+  <br>
+  <%= f.label :min_price %>
+  <%= f.search_field :price_gteq, id: "search_min_price" %>
+
+  <%= f.label :max_price %>
+  <%= f.search_field :price_lteq, id: "search_max_price" %>
+
+  <div id="slider-range" style="width: 500px"></div>
 
   <%= f.submit %>
 <% end %>
+
+<%= button_tag "action", class: "search_genre" %>
+<%= button_tag "fantasy", class: "search_genre" %>
 
 <%= link_to "Clear Search", request.path, class:"cancel-button" %>
 
@@ -17,3 +28,36 @@
 <%= paginate @games %>
 <%= render @games %>
 <%= paginate @games %>
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+$( function() {
+  var min_price_field = $("#search_min_price");
+  var max_price_field = $("#search_max_price");
+  $( "#slider-range" ).slider({
+    range: true,
+    min: 0,
+    max: 200,
+    values: [0, 200],
+    slide: function( event, ui ) {
+      $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+    }
+  });
+  $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
+    " - $" + $( "#slider-range" ).slider( "values", 1 ) );
+
+  min_price_field.val(0);
+  max_price_field.val(200);
+  $('#slider-range').slider({
+    slide: function(event, ui) {
+      min_price_field.val(ui.values[0]);
+      max_price_field.val(ui.values[1]);
+    }
+  });
+  $(".search_genre").click(function(){
+    $("#search_genres").val($(this).text());
+    $("#search_form").submit();
+  });
+});
+</script>
