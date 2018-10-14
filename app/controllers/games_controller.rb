@@ -2,6 +2,7 @@ class GamesController < ApplicationController
   def index
     @q = Game.ransack(params[:q])
     @games = @q.result.includes(:genres).page(params[:page]).per(3)
+    @genres = Genre.all.map(&:genre).uniq
   end
 
   def show

@@ -9,7 +9,7 @@ user1 = User.create! nick_name: Faker::Name.middle_name,
                 price: Faker::Number.decimal(2, 2),
                 picture: Rails.root.join("app/assets/images/slide-#{n%5+1}.jpg").open
 
-  game.genres.create! genre: ["action", "fantasy"][rand(0..1)]
+  game.genres.create! genre: ["Action", "Fantasy"][rand(0..1)]
 
   game.reviews.create! user_id: user1.id,
                 content: Faker::Lorem.sentence(5),

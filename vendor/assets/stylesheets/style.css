@@ -376,11 +376,11 @@ a:focus, a:hover {
 	}
 
 	.callbacks_nav {
-		display: none;
+		display: inline;
 	}
 
 	ul.callbacks_tabs.callbacks1_tabs {
-		display: none;
+		display: inline;
 	}
 
 	/*-- //Slider --*/

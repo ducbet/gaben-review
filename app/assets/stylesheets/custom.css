@@ -31,3 +31,11 @@
 .reply_text_field {
   color: #000;
 }
+
+.search_genre {
+  padding: 0;
+  border: none;
+  background: none;
+  color: #428bca;
+  text-decoration: underline;
+}
