@@ -1,0 +1,8 @@
+<%= form_for @comment, remote: true do |f| %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.hidden_field :game_id, value: game_id %>
+
+  <%= f.label :content, "comment" %>
+  <%= f.text_field :content, id: "review_text_field" %>
+  <%= f.submit "Send", class: "uk-button uk-button-primary", style: "font-size:1em" %>
+<% end %>
