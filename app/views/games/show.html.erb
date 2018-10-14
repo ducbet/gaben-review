@@ -2,21 +2,32 @@
 
 <div class="uk-margin">
   <br>
-  <h1 class="uk-heading-bullet" style="color: #fff">
-    name: <%= @game.name %>
+  <h1 style="color: #fff"><%= @game.name %>
   </h1>
-  <h1 class="uk-heading-bullet" style="color: #fff; margin-top: 0;">
-    details: <%= @game.details %>
-  </h1>
-  <h1 class="uk-heading-bullet" style="color: #fff; margin-top: 0;">
-    price: $<%= @game.price %>
-  </h1>
-
-  <div class="w3portfolioaits-items">
-    <% @game.screenshots.each.with_index(1) do |screenshot, index| %>
-      <div class="<%= "col-md-3 w3portfolioaits-item w3portfolioaits-item-#{index}" %>">
-        <%= link_to(screenshot.picture.url, {class: "example-image-link",
-            :"data-lightbox" => "example-set"}) do %>
+  <div class="container" id="content">
+    <div id="info">
+      <h1 style="color: #fff; margin-top: 20px; text-align: left;"><%= t (".info") %></h1>
+      <br><h2 style="color: #fff; text-align: left"><%= @game.details %></br></h2>
+      <h1 style="color: #fff; margin-top: 20px; text-align: left;"><%= t (".price") %></h1>
+      <br><h2 style="color: #fff; text-align: left">$<%= @game.price %></br></h2>
+      <h1 style="color: #fff; margin-top: 20px; text-align: left;"><%= t (".genre") %></h1>
+      <br>
+        <h2 style="color: #fff; text-align: left">
+          <% @game.genres.each do |genre| %>
+          <%= genre.genre %>
+          <% end %>
+        </h2>
+      </br>
+      <h1 style="color: #fff; margin-top: 20px; text-align: left;"><%= t (".avg_score") %></h1>
+      <br>
+        <h2 style="color: #fff; text-align: left"><%= @game.count_average_score %></br></h2>
+      </br>
+    </div>
+    <div id="picture">
+      <div class="w3portfolioaits-items">
+      <% @game.screenshots.each.with_index(1) do |screenshot, index| %>
+        <div class="<%= "col-md-3 w3portfolioaits-item w3portfolioaits-item-#{index}" %>">
+        <%= link_to(screenshot.picture.url, {class: "example-image-link",:"data-lightbox" => "example-set"}) do %>
           <div class="grid">
             <figure class="effect-apollo">
               <%= image_tag(screenshot.picture.url, alt: "Game Robo") %>
@@ -24,23 +35,17 @@
             </figure>
           </div>
         <% end %>
+        </div>
+    <% end %>
+      <div class="clearfix"></div>
       </div>
-    <% end %>
-    <div class="clearfix"></div>
+    </div>
   </div>
-
-  <h1 class="uk-heading-bullet" style="color: #fff; margin-top: 0;">
-    genre:
-    <% @game.genres.each do |genre| %>
-      <%= genre.genre %>
-    <% end %>
-  </h1>
-  <h1 class="uk-heading-bullet" style="color: #fff; margin-top: 0;">
-    reviews:
+  <h1 style="color: #fff; margin-top: 20px;">Reviews
     <ol>
-      <% @game.reviews.each do |review| %>
-        <li>score: <%= review.score %>, content: <%= review.content %></li>
-      <% end %>
+    <% @game.reviews.each do |review| %>
+    <li style="text-align: left; list-style-type:square;"><%= review.content %></li>
+    <% end %>
     </ol>
   </h1>
 <div>

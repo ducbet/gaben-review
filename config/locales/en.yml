@@ -82,3 +82,9 @@ en:
     create_failed: "Fail to create user"
     login_fail: "Invalid email/password combination."
     updated: "Profile updated."
+  games:
+    show:
+      info: "Information"
+      price: "Price"
+      genre: "Genre"
+      avg_score: "Average Score"

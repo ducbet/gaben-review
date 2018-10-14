@@ -8,3 +8,18 @@
 .games_index_image {
   width: 300px;
 }
+
+#content {
+  overflow: auto;
+}
+
+#info {
+  width: 480px;
+  float: left;
+  text-align: left
+}
+
+#picture {
+  width: 480px;
+  float: right;
+}
