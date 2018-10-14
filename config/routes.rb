@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :games, only: [:index, :show]
     resources :users, only: [:show, :edit, :update]
     resources :reviews, only: [:create]
+    resources :replies, only: [:create]
     get "static_pages/home"
     root "static_pages#home"
   end

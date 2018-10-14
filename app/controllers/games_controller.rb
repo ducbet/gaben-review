@@ -8,5 +8,6 @@ class GamesController < ApplicationController
     @game = Game.find_by id: params[:id]
     @reviews = @game.reviews
     @comment = Review.new
+    @new_reply = Reply.new
   end
 end
