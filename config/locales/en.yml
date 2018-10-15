@@ -79,10 +79,18 @@ en:
               invalid: "Already changed password"
   flash:
     welcome: "Welcome to Chim store"
-    create_failed: "Fail to create user"
+    create_user_failed: "Fail to create user"
+    add_game_success: "Add ame succés"
+    add_game_failed: "Add game faild"
     login_fail: "Invalid email/password combination."
     updated: "Profile updated."
   games:
+    name: "Name"
+    details: "Details"
+    price: "Price"
+    add_game: "Add game"
+    new:
+      add: "Add"
     show:
       info: "Information"
       price: "Price"

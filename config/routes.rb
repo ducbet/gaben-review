@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     get "sessions/new"
     post "/login", to: "sessions#create"
     post "/signup", to: "users#create"
-    resources :games, only: [:index, :show]
+    resources :games, only: [:index, :show, :new, :create]
     resources :users, only: [:show, :edit, :update]
     resources :reviews, only: [:create]
     resources :replies, only: [:create]

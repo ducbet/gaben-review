@@ -1,0 +1,49 @@
+<%= form_for @game, url: yield(:url), class: "uk-form-stacked" do |f| %>
+  <div class="uk-margin">
+    <div class="uk-form-controls">
+      <%= render "shared/error_messages", object: @game %>
+    </div>
+  </div>
+  <div class="uk-margin">
+    <%= f.label :name, t("games.name") %>
+    <div class="uk-form-controls">
+      <div class="uk-inline">
+        <span class="uk-form-icon" uk-icon="icon: user"></span>
+        <%= f.text_field :name, class: "uk-input uk-form-width-large" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="uk-margin">
+    <%= f.label :details, t("games.details") %>
+    <div class="uk-form-controls">
+      <div class="uk-inline">
+        <span class="uk-form-icon" uk-icon="icon: info"></span>
+        <%= f.text_field :details, class: "uk-input uk-form-width-large" %>
+      </div>
+    </div>
+  </div>
+  <div class="uk-margin">
+    <%= f.label :price, t("games.price") %>
+    <div class="uk-form-controls">
+      <div class="uk-inline">
+        <span class="uk-form-icon" uk-icon="icon: lock"></span>
+        <%= f.number_field :price, class: "uk-input uk-form-width-large" %>
+      </div>
+    </div>
+  </div>
+  <span class="picture">
+    <%= f.file_field :picture %>
+  </span>
+
+  <%= f.fields_for :screenshot do |p| %>
+    <div class="field">
+      <%= p.label :screenshot %><br>
+      <%= p.file_field :screenshot, multiple: true, name: "screenshots[picture][]" %>
+    </div>
+  <% end %>
+
+  <div class="uk-margin">
+    <%= f.submit yield(:button_text), class: "uk-button uk-button-primary", style: "font-size:1em" %>
+  </div>
+<% end %>

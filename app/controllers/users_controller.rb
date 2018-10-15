@@ -16,7 +16,7 @@ class UsersController < ApplicationController
       flash[:success] = t "flash.welcome"
       redirect_to root_path
     else
-      flash[:danger] = t "flash.create_failed"
+      flash[:danger] = t "flash.create_user_failed"
       render :new
     end
   end
