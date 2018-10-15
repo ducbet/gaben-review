@@ -1,25 +1,19 @@
 <ul style="color: white">
-  <%= image_tag game.picture.url, class: "games_index_image" %>
+  <%= link_to game_path(game) do %>
+    <%= image_tag game.picture.url, class: "games_index_image" %>
 
-  <li>name: <%= game.name %>
+    <li style="color: white">name: <%= game.name %></li>
+  <% end %>
 
   <li>details: <%= game.details %></li>
 
   <li>genre:
     <% game.genres.each do |genre| %>
-      <%= genre.genre %>
+    <%= button_tag genre.genre, class: "search_genre" %>
     <% end %>
   </li>
 
   <li>price: $<%= game.price %></li>
-
-  <li>reviews:
-    <ol>
-      <% game.reviews.each do |review| %>
-        <li>score: <%= review.score %>, content: <%= review.content %></li>
-      <% end %>
-    </ol>
-  </li>
 
 </ul>
 
