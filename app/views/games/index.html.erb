@@ -17,8 +17,9 @@
   <%= f.submit %>
 <% end %>
 
-<%= button_tag "action", class: "search_genre" %>
-<%= button_tag "fantasy", class: "search_genre" %>
+<% @genres.each do |genre| %>
+  <%= button_tag genre, class: "search_genre" %>
+<% end %>
 
 <%= link_to "Clear Search", request.path, class:"cancel-button" %>
 
