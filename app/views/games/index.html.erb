@@ -2,14 +2,14 @@
 
   <%= f.hidden_field :genres_genre_cont, id: "search_genres" %>
 
-  <%= f.label :name_or_details %>
+  <%= f.label :name_or_details, class: "form_label" %>
   <%= f.search_field :name_or_details_cont %>
 
   <br>
-  <%= f.label :min_price %>
+  <%= f.label :min_price, class: "form_label" %>
   <%= f.search_field :price_gteq, id: "search_min_price" %>
 
-  <%= f.label :max_price %>
+  <%= f.label :max_price, class: "form_label" %>
   <%= f.search_field :price_lteq, id: "search_max_price" %>
 
   <div id="slider-range" style="width: 500px"></div>
@@ -17,15 +17,18 @@
   <%= f.submit %>
 <% end %>
 
+<%= link_to "Clear Search", request.path %>
+
+<br>
 <% @genres.each do |genre| %>
   <%= button_tag genre, class: "search_genre" %>
 <% end %>
 
-<%= link_to "Clear Search", request.path, class:"cancel-button" %>
-
+<div class="form_label">Sort by:</div>
 <%= sort_link(@q, :name) %>
 <%= sort_link(@q, :price) %>
 
+<br>
 <%= paginate @games %>
 <%= render @games %>
 <%= paginate @games %>

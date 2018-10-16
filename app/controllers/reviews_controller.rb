@@ -3,6 +3,7 @@ class ReviewsController < ApplicationController
     @review = Review.new review_params
     if @review.save
       @comment = Review.new
+      @new_reply = Reply.new
       respond_to do |format|
         format.js
       end
