@@ -1,64 +1,83 @@
 <% provide :title, @game.name %>
 
-<div class="uk-margin">
-  <br>
-  <h1 style="color: #fff"><%= @game.name %>
+<div
+  class="uk-height-large uk-background-cover uk-light uk-flex"
+  style="background-image: url('<%= @game.picture.url %>');"
+  uk-parallax="bgy: -200"
+>
+  <h1 class="uk-width-1-2@m uk-text-center uk-margin-auto uk-margin-auto-vertical">
+    <%= @game.name %>
   </h1>
-  <div class="container" id="content">
-    <div id="info">
-      <h1 style="color: #fff; margin-top: 20px; text-align: left;"><%= t (".info") %></h1>
-      <br><h2 style="color: #fff; text-align: left"><%= @game.details %></br></h2>
-      <h1 style="color: #fff; margin-top: 20px; text-align: left;"><%= t (".price") %></h1>
-      <br><h2 style="color: #fff; text-align: left">$<%= @game.price %></br></h2>
-      <h1 style="color: #fff; margin-top: 20px; text-align: left;"><%= t (".genre") %></h1>
+</div>
+
+<div class="container">
+  <br><br>
+  <h2 style="color: #fff"><%= t (".info") %></h2>
+  <br><br>
+  <div class="uk-grid">
+    <div class="uk-width-1-3@m">
+      <h3 style="color: #fff; text-align: left;">
+        <%= t (".price") %>: $<%= @game.price %>
+      </h3>
       <br>
-        <h2 style="color: #fff; text-align: left">
+      <h3 style="color: #fff; text-align: left;">
+        <%= t (".genre") %>:
+        <span style="color: #fff; text-align: left;">
           <% @game.genres.each do |genre| %>
-          <%= genre.genre %>
+            <%= genre.genre %>
           <% end %>
-        </h2>
-      </br>
-      <h1 style="color: #fff; margin-top: 20px; text-align: left;"><%= t (".avg_score") %></h1>
-
-      <div id="score_ruby_var" data-score="<%= @game.count_average_score %>"
-                               data-comment_score="0"
-                               data-max_score="<%= Settings.max_score %>"></div>
-      <div class="wthreeratingaits" id="game_star">
-        <%= render "shared/star", score: @game.count_average_score %>
-      </div>
-
+        </span>
+      </h3>
+      <br>
+      <h3 style="color: #fff; text-align: left;">
+        <%= t (".avg_score") %>: <%= @game.count_average_score %>
+      </h3>
     </div>
-    <div id="picture">
-      <div class="w3portfolioaits-items">
-      <% @game.screenshots.each.with_index(1) do |screenshot, index| %>
-        <div class="<%= "col-md-3 w3portfolioaits-item w3portfolioaits-item-#{index}" %>">
-        <%= link_to(screenshot.picture.url, {class: "example-image-link",:"data-lightbox" => "example-set"}) do %>
-          <div class="grid">
-            <figure class="effect-apollo">
-              <%= image_tag(screenshot.picture.url, alt: "Game Robo") %>
-                <figcaption></figcaption>
-            </figure>
-          </div>
-        <% end %>
+    <br>
+    <div uk-slider class="uk-width-expand@m">
+      <div class="uk-position-relative">
+        <div class="uk-slider-container uk-light">
+          <ul class="uk-slider-items uk-child-width-1-2 uk-child-width-1-3@s uk-child-width-1-4@m">
+            <% @game.screenshots.each.with_index(1) do |screenshot, index| %>
+              <li>
+                <div uk-lightbox>
+                  <%= link_to(screenshot.picture.url, style: "height: 100%") do %>
+                    <%= image_tag(screenshot.picture.url, alt: "Game Robo") %>
+                  <% end %>
+                </div>
+              </li>
+            <% end %>
+          </ul>
         </div>
-    <% end %>
-      <div class="clearfix"></div>
+        <div class="uk-hidden@s uk-light">
+          <a class="uk-position-center-left uk-position-small" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+          <a class="uk-position-center-right uk-position-small" href="#" uk-slidenav-next uk-slider-item="next"></a>
+        </div>
+        <div class="uk-visible@s">
+          <a class="uk-position-center-left-out uk-position-small" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+          <a class="uk-position-center-right-out uk-position-small" href="#" uk-slidenav-next uk-slider-item="next"></a>
+        </div>
       </div>
+      <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
     </div>
   </div>
-  <h1 style="color: #fff; margin-top: 20px;">Reviews
-    <ol>
-      <div id="comment_area">
-        <% if logged_in? && !had_comment_in(@game) %>
-          <%= render "reviews/comment", game_id: @game.id %>
-        <% end %>
-      </div>
-      <div id="reviews">
-        <%= render @reviews %>
-      </div>
-    </ol>
-  </h1>
+</div>
+
 <div>
+  <br>
+  <br>
+  <div class="uk-card uk-card-default uk-card-body">
+    <div class="container">
+      <h2>Reviews</h2>
+      <% if logged_in && !had_comment_in(@game)? %>
+        <%= render "reviews/comment", game_id: @game.id %>
+      <% end %>
+      <ul class="uk-list uk-list-large uk-list-divider">
+        <%= render @game.reviews %>
+      </ul>
+    </div>
+  </div>
+</div>
 
 <!-- Popup-Box-JavaScript -->
 <script src="assets/jquery.chocolat.js"></script>

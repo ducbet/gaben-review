@@ -1,8 +1,7 @@
-.uk-container {
-  max-width: 100%;
-  padding-left: 0px;
-  padding-right: 0px;
-  background: url(tabs-bg.jpg);
+body {
+  background-image: url(tabs-bg.jpg) !important;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .games_index_image {
