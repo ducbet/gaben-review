@@ -2,6 +2,7 @@ class RepliesController < ApplicationController
   def create
     @reply = Reply.new reply_params
     if @reply.save
+      @comment = Review.new
       @new_reply = Review.new
       respond_to do |format|
         format.js
