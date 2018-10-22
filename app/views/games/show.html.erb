@@ -19,9 +19,13 @@
         </h2>
       </br>
       <h1 style="color: #fff; margin-top: 20px; text-align: left;"><%= t (".avg_score") %></h1>
-      <br>
-        <h2 style="color: #fff; text-align: left"><%= @game.count_average_score %></br></h2>
-      </br>
+
+      <div id="score_ruby_var" data-score="<%= @game.count_average_score %>"
+                               data-max_score="<%= Settings.max_score %>"></div>
+      <div class="wthreeratingaits">
+        <%= render "shared/star", score: @game.count_average_score %>
+      </div>
+
     </div>
     <div id="picture">
       <div class="w3portfolioaits-items">
@@ -61,3 +65,44 @@
   });
 </script>
 <!-- //Popup-Box-JavaScript -->
+
+<script type="text/javascript">
+  $(".fa").mouseover(function() {
+    var i = 1;
+    for(; i <= this.id.slice(-1); i++) {
+      $("#star_" + i).removeClass();
+      $("#star_" + i).addClass("fa");
+      $("#star_" + i).addClass("fa-star");
+    }
+    for(; i <= 5; i++) {
+      $("#star_" + i).removeClass();
+      $("#star_" + i).addClass("fa");
+      $("#star_" + i).addClass("fa-star-o");
+    }
+  });
+
+  $(".fa").mouseout(function() {
+    var score = $("#score_ruby_var").data("score");
+    var max_score = $("#score_ruby_var").data("max_score");
+    var i = 1;
+    for(; i <= Math.floor(score); i++) {
+      // console.log(i + " fa-star");
+      $("#star_" + i).removeClass();
+      $("#star_" + i).addClass("fa");
+      $("#star_" + i).addClass("fa-star");
+    }
+    if (!(score % 1 == 0)) {
+      // console.log(i + " fa-star-half-o");
+      $("#star_" + i).removeClass();
+      $("#star_" + i).addClass("fa");
+      $("#star_" + i).addClass("fa-star-half-o");
+      i++;
+    }
+    for(; i <= max_score; i++) {
+      // console.log(i + " fa-star-o");
+      $("#star_" + i).removeClass();
+      $("#star_" + i).addClass("fa");
+      $("#star_" + i).addClass("fa-star-o");
+    }
+  });
+</script>

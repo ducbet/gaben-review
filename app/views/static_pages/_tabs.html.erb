@@ -25,13 +25,7 @@
                 <% end %>
                 <h4><%= rand(1000..5000) %> Downloads</h4>
                 <div class="wthreeratingaits">
-                  <ul>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-star-half-o" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
-                  </ul>
+                  <%= render "shared/star", score: game.count_average_score %>
                 </div>
               </div>
             <% end %>
@@ -47,13 +41,7 @@
                 <h3><%= game.name %></h3>
                 <h4><%= rand(1000..5000) %> Downloads</h4>
                 <div class="wthreeratingaits">
-                  <ul>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                  </ul>
+                  <%= render "shared/star", score: game.count_average_score %>
                 </div>
               </div>
             <% end %>
@@ -69,13 +57,7 @@
                 <h3><%= game.name %></h3>
                 <h4><%= rand(1000..5000) %> Downloads</h4>
                 <div class="wthreeratingaits">
-                  <ul>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                  </ul>
+                  <%= render "shared/star", score: game.count_average_score %>
                 </div>
               </div>
             <% end %>
@@ -91,13 +73,7 @@
                 <h3><%= game.name %></h3>
                 <h4><%= rand(1000..5000) %> Downloads</h4>
                 <div class="wthreeratingaits">
-                  <ul>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                  </ul>
+                  <%= render "shared/star", score: game.count_average_score %>
                 </div>
               </div>
             <% end %>
