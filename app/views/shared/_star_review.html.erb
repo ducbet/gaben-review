@@ -1,0 +1,66 @@
+<ul>
+  <% 1.upto(score) do |n| %>
+    <li>
+      <i class="fa-cmt fa fa-star", id="<%= "star_#{n}" %>"  aria-hidden="true"></i>
+    </li>
+  <% end %>
+  <% unless score % 1 == 0 %>
+    <li>
+      <i class="fa-cmt fa fa-star-half-o", id="<%= "star_#{score.ceil}" %>" aria-hidden="true"></i>
+    </li>
+  <% end %>
+  <% (score+1).ceil.upto(Settings.max_score.to_i) do |n| %>
+    <li>
+      <i class="fa-cmt fa fa-star-o", id="<%= "star_#{n}" %>" aria-hidden="true"></i>
+    </li>
+  <% end %>
+</ul>
+
+<script type="text/javascript">
+  $(".fa-cmt").click(function() {
+    var $review_score = $("#review_score");
+    review_score.value = this.id.slice(-1);
+    $("#score_ruby_var").data("comment_score", this.id.slice(-1));
+  });
+
+  $(".fa-cmt").mouseover(function() {
+    var i = 1;
+    $("#review_score").value = this.id.slice(-1);
+    for(; i <= this.id.slice(-1); i++) {
+      $("#star_" + i).removeClass();
+      $("#star_" + i).addClass("fa");
+      $("#star_" + i).addClass("fa-star");
+    }
+    for(; i <= 5; i++) {
+      $("#star_" + i).removeClass();
+      $("#star_" + i).addClass("fa");
+      $("#star_" + i).addClass("fa-star-o");
+    }
+  });
+
+  $(".star_review").mouseout(function() {
+    var score = $("#score_ruby_var").data("comment_score");
+    var max_score = $("#score_ruby_var").data("max_score");
+    var i = 1;
+    for(; i <= Math.floor(score); i++) {
+      // console.log(i + " fa-star");
+      $("#star_" + i).removeClass();
+      $("#star_" + i).addClass("fa");
+      $("#star_" + i).addClass("fa-star");
+    }
+    if (!(score % 1 == 0)) {
+      // console.log(i + " fa-star-half-o");
+      $("#star_" + i).removeClass();
+      $("#star_" + i).addClass("fa");
+      $("#star_" + i).addClass("fa-star-half-o");
+      i++;
+    }
+    for(; i <= max_score; i++) {
+      // console.log(i + " fa-star-o");
+      $("#star_" + i).removeClass();
+      $("#star_" + i).addClass("fa");
+      $("#star_" + i).addClass("fa-star-o");
+    }
+  });
+</script>
+

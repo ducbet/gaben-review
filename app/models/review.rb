@@ -7,4 +7,6 @@ class Review < ApplicationRecord
 
   # scope :newest_first, ->{order created_at: :desc}
   default_scope {order created_at: :desc}
+
+  scope :all_except, ->(user) {where.not user_id: user.id}
 end

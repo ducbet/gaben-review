@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     post "/signup", to: "users#create"
     resources :games, only: [:index, :show, :new, :create]
     resources :users, only: [:show, :edit, :update]
-    resources :reviews, only: [:create]
+    resources :reviews, only: [:create, :edit, :update]
     resources :replies, only: [:create]
     get "static_pages/home"
     root "static_pages#home"
