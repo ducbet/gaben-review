@@ -28,6 +28,17 @@
           </div>
         </div>
       </div><!--/tab-content-->
+      Lich su nhan xet
+      <br>
+      <%= paginate @reviews %>
+      <br>
+      <% @reviews.each do |review| %>
+
+      <%= link_to review.game.name, game_path(review.game) %>
+      <%= render review %>
+      <br>
+      <% end %>
+      <%= paginate @reviews %>
     </div><!--/col-9-->
   </div>
 </div><!--/row-->

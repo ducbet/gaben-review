@@ -2,12 +2,12 @@
 <div class="wthreeratingaits">
   <%= render "shared/star", score: review.score %>
 </div>
-<% if review.user == current_user %>
-  <!-- <div onclick="edit_review()">Edit</div> -->
+<!-- !@new_reply.nil? de trang show user profile khong hien nut edit comment -->
+<% if review.user == current_user && !@new_reply.nil? %>
   <%= link_to "Edit", edit_review_path(review), remote: true %>
 <% end %>
 <%= render review.reply %>
-<% if logged_in? %>
+<% if logged_in? && !@new_reply.nil? %>
   <div id="<%= "reply_form_#{review.id}" %>">
     <%= form_for @new_reply, remote: true do |f| %>
       <%= f.hidden_field :user_id, value: current_user.id %>
