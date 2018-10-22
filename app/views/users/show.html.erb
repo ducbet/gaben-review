@@ -5,9 +5,12 @@
   <div class="row">
     <div class="col-sm-3"><!--left col-->
       <div class="text-center">
-        <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail" alt="avatar">
+        <%= image_tag(@user.picture.url, alt: "avatar") %>
         <h6>Upload a different photo...</h6>
-        <input type="file" class="text-center center-block file-upload">
+        <%= form_for @user, html: {id: "upload_avatar_form"} do |f| %>
+          <%= f.file_field :picture, id: "upload_avatar" %>
+        <% end %>
+
       </div></hr><br>
 
       <div class="panel panel-default">
@@ -42,3 +45,9 @@
     </div><!--/col-9-->
   </div>
 </div><!--/row-->
+
+<script type="text/javascript">
+  $("#upload_avatar").on('change', function() {
+    $("#upload_avatar_form").submit();
+  });
+</script>
