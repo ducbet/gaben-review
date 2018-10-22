@@ -1,11 +1,11 @@
 user1 = User.create! nick_name: Faker::Name.middle_name,
 email: "a@a.a",
-picture: Faker::Avatar.image,
+picture: Rails.root.join("app/assets/images/default_avatar.jpg").open,
 password: "asdasd"
 
 User.create! nick_name: Faker::Name.middle_name,
 email: "b@b.b",
-picture: Faker::Avatar.image,
+picture: Rails.root.join("app/assets/images/fly_avatar.jpg").open,
 password: "asdasd"
 
 genres = Genre.all_genre

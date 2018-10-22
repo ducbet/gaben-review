@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :reviews
+  mount_uploader :picture, PictureUploader
   attr_reader :remember_token
 
   VALID_EMAIL_REGEX = /\A[\w.\-]+@[a-z+\d\-.]+\.+[a-z]+\z/i
