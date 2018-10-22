@@ -1,17 +1,17 @@
 <ul>
   <% 1.upto(score) do |n| %>
     <li>
-      <i class="fa fa-star", id="<%= "star_#{n}" %>"  aria-hidden="true"></i>
+      <i class="fa fa-star" aria-hidden="true" style="color: #fff"></i>
     </li>
   <% end %>
   <% unless score % 1 == 0 %>
     <li>
-      <i class="fa fa-star-half-o", id="<%= "star_#{score.ceil}" %>" aria-hidden="true"></i>
+      <i class="fa fa-star-half-o" aria-hidden="true" style="color: #fff"></i>
     </li>
   <% end %>
   <% (score+1).ceil.upto(Settings.max_score.to_i) do |n| %>
     <li>
-      <i class="fa fa-star-o", id="<%= "star_#{n}" %>" aria-hidden="true"></i>
+      <i class="fa fa-star-o" aria-hidden="true" style="color: #fff"></i>
     </li>
   <% end %>
   <span style="color: #fff"><%= score %></span>

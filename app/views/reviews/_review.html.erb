@@ -1,4 +1,11 @@
 <li style="text-align: left; list-style-type:square;"><%= review.content %></li>
+<div class="wthreeratingaits">
+  <%= render "shared/star", score: review.score %>
+</div>
+<% if review.user == current_user %>
+  <!-- <div onclick="edit_review()">Edit</div> -->
+  <%= link_to "Edit", edit_review_path(review), remote: true %>
+<% end %>
 <%= render review.reply %>
 <% if logged_in? %>
   <div id="<%= "reply_form_#{review.id}" %>">
