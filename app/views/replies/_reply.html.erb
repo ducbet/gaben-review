@@ -1,3 +1,12 @@
-<div id="<%= "reply_#{reply.id}" %>">
-  <li style="text-align: left; list-style-type:square;">--<%= reply.content %></li>
-</div>
+<article class="uk-comment" style="margin: 20px 0 0 70px">
+  <header class="uk-comment-header uk-grid-medium uk-flex-middle" uk-grid style="margin-bottom: 0;">
+    <div class="uk-width-auto">
+      <img class="uk-comment-avatar" src="/uploads/user/avatar/default.png" alt="" style="width: 40px; height: 40px;">
+    </div>
+    <div class="uk-width-expand">
+      <div class="uk-comment-title uk-margin-remove">
+        <p style="font-size: 1.5rem"><%= reply.content %></p>
+      </div>
+    </div>
+  </header>
+</article>
