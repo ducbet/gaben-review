@@ -7,7 +7,9 @@
       <div class="text-center">
         <%= image_tag(@user.picture.url, alt: "avatar") %>
         <%if logged_in? %>
-          <h6>Upload a different photo...</h6>
+          <br><br>
+          <h5>Upload a different photo...</h5>
+          <br>
           <%= form_for @user, html: {id: "upload_avatar_form"} do |f| %>
             <%= f.file_field :picture, id: "upload_avatar" %>
           <% end %>
@@ -34,7 +36,8 @@
           </div>
         </div>
       </div><!--/tab-content-->
-      Lich su nhan xet
+      <br><br><br><br>
+      <h1><%= t ".review_history" %></h1>
       <br>
       <%= paginate @reviews %>
       <br>

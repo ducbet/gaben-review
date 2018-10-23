@@ -28,6 +28,7 @@ en:
     show:
       profile: "Profile"
       edit: "Edit profile"
+      review_history: "Review History"
     new:
       signup: "Sign up"
       name: "Name"
