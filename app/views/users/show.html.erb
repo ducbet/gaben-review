@@ -5,12 +5,21 @@
   <div class="row">
     <div class="col-sm-3"><!--left col-->
       <div class="text-center">
+<<<<<<< HEAD
         <%= image_tag(@user.picture.url, alt: "avatar") %>
         <%if logged_in? %>
           <h6>Upload a different photo...</h6>
           <%= form_for @user, html: {id: "upload_avatar_form"} do |f| %>
             <%= f.file_field :picture, id: "upload_avatar" %>
           <% end %>
+=======
+        <% if (@user.picture && @user.picture.url) %>
+          <%= image_tag(@user.picture.url, alt: "avatar") %>
+        <% end %>
+        <h6>Upload a different photo...</h6>
+        <%= form_for @user, html: {id: "upload_avatar_form"} do |f| %>
+          <%= f.file_field :picture, id: "upload_avatar" %>
+>>>>>>> 7613f21633269b3795be38f6cd165b713345cb5d
         <% end %>
       </div></hr><br>
 
@@ -36,7 +45,7 @@
       </div><!--/tab-content-->
       Lich su nhan xet
       <br>
-      <%= paginate @reviews %>
+      <%= will_paginate @reviews %>
       <br>
       <% @reviews.each do |review| %>
 
@@ -44,7 +53,7 @@
       <%= render review %>
       <br>
       <% end %>
-      <%= paginate @reviews %>
+      <%= will_paginate @reviews %>
     </div><!--/col-9-->
   </div>
 </div><!--/row-->
