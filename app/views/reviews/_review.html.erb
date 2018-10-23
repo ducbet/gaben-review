@@ -1,21 +1,35 @@
-<li style="text-align: left; list-style-type:square;"><%= review.content %></li>
-<div class="wthreeratingaits">
-  <%= render "shared/star", score: review.score %>
-</div>
-<!-- !@new_reply.nil? de trang show user profile khong hien nut edit comment -->
-<% if review.user == current_user && !@new_reply.nil? %>
-  <%= link_to "Edit", edit_review_path(review), remote: true %>
-<% end %>
-<%= render review.reply %>
-<% if logged_in? && !@new_reply.nil? %>
-  <div id="<%= "reply_form_#{review.id}" %>">
-    <%= form_for @new_reply, remote: true do |f| %>
-      <%= f.hidden_field :user_id, value: current_user.id %>
-      <%= f.hidden_field :review_id, value: review.id %>
+<article class="uk-comment">
+  <header class="uk-comment-header uk-grid-medium uk-flex-middle" uk-grid style="margin-bottom: 0;">
+    <div class="uk-width-auto">
+      <img class="uk-comment-avatar" src="/uploads/user/avatar/default.png" alt="" style="width: 40px; height: 40px;">
+    </div>
+    <div class="uk-width-expand">
+      <div class="uk-comment-title uk-margin-remove">
+        <p style="font-size: 1.5rem"><%= review.content %></p>
+      </div>
+      <% if logged_in? %>
+        <ul class="uk-comment-meta uk-subnav uk-subnav-divider uk-margin-remove-top" style="padding-left: 0;">
+          <li style="padding-left: 0;"></li>
+          <li style="padding-left: 0;">
+            <a href="##" onClick="$('<%= "#reply_form_#{review.id}" %>').show()" style="font-size: 1.25rem">Reply</a>
+          </li>
+        </ul>
+      <% end %>
+    </div>
+  </header>
+  <div class="uk-comment-body">
+    <%= render review.reply %>
+    <div class="uk-margin" uk-margin id="<%= "reply_form_#{review.id}" %>" style="display: none; margin: 10px 0 0 70px;">
+      <%= form_for @new_reply, remote: true do |f| %>
+        <%= f.hidden_field :user_id, value: current_user.id %>
+        <%= f.hidden_field :review_id, value: review.id %>
 
-      <%= f.label :content, "Reply" %>
-      <%= f.text_field :content, class: "reply_text_field", id: "reply_#{review.id}_text_field" %>
-      <%= f.submit "Send", class: "uk-button uk-button-primary", style: "font-size:1em" %>
-    <% end %>
+        <div uk-form-custom="target: true">
+          <%= f.text_field :content, id: "reply_#{review.id}_text_field", class: "uk-input uk-form-width-medium", placeholder: "Enter your reply" %>
+        </div>
+        <%= f.submit "Send", class: "uk-button uk-button-default", style: "font-size:1em" %>
+      <% end %>
+    </div>
   </div>
-<% end %>
+</article>
+<li>
