@@ -4,6 +4,14 @@ body {
   background-size: cover;
 }
 
+.dropdown-menu > li > a {
+  color: #ccc !important;
+  transition: all .2s ease-in;
+}
+.dropdown-menu > li > a:hover {
+  color: #333 !important;
+}
+
 .games_index_image {
   width: 300px;
 }
