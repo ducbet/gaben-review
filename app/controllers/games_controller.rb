@@ -8,7 +8,11 @@ class GamesController < ApplicationController
   def show
     @game = Game.find_by id: params[:id]
     @reviews = @game.reviews
-    @comment = @reviews.find_by(user_id: current_user.id) || Review.new
+    @comment = unless current_user.nil?
+                  @reviews.find_by(user_id: current_user.id)
+               else
+                  Review.new
+               end
     @new_reply = Reply.new
   end
 
