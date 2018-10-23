@@ -3,7 +3,8 @@ class UsersController < ApplicationController
   before_action :correct_user, only: [:edit, :update]
 
   def show
-    @reviews = @user.reviews.page(params[:page]).per(3)
+    @reviews = @user.reviews.paginate(:page => params[:page], :per_page => 9)
+    byebug
   end
 
   def new
