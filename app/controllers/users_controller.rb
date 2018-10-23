@@ -4,7 +4,6 @@ class UsersController < ApplicationController
 
   def show
     @reviews = @user.reviews.paginate(:page => params[:page], :per_page => 9)
-    byebug
   end
 
   def new
