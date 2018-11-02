@@ -20,19 +20,18 @@
       <div id="navbar" class="navbar-collapse navbar-right collapse" style="margin-right: 0;">
         <ul class="nav navbar-nav navbar-right cross-effect" id="cross-effect">
           <% if controller_name.eql? "static_pages" %>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                <%= t ".games" %> <b class="caret"></b>
-              </a>
-              <ul class="dropdown-menu">
-                <li><%= link_to "All", games_path %></li>
-                <li class="divider"></li>
-                <% Genre.all.map(&:genre).uniq.each do |genre| %>
-                  <li><%= link_to genre, games_path(q: {genres_genre_cont: genre}) %></li>
-                  <li class="divider"></li>
-                <% end %>
-              </ul>
-            </li>
+            <% if !current_user.nil? && current_user.admin? %>
+               <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <%= t ".games" %> <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><%= link_to t(".all_games"), games_path %></li>
+                  <li><%= link_to t(".add_game"), new_admin_game_path %></li>
+                </ul>
+              </li>
+            <% end %>
+            <li><%= link_to t(".games"), games_path %></li>
             <li><%= link_to t(".platforms"), "#agileinfoplatforms", {class: "scroll"} %></li>
             <li><%= link_to t(".collection"), "#wthreetabsaits", {class: "scroll"} %></li>
             <li><%= link_to t(".portfolio"), "#w3portfolioaits", {class: "scroll"} %></li>
@@ -40,19 +39,19 @@
             <li><%= link_to t(".news"), "#wthreeblogsaits", {class: "scroll"} %></li>
             <li><%= link_to t(".contact"), "#agilecontactw3ls", {class: "scroll"} %></li>
           <% else %>
+            <% if !current_user.nil? && current_user.admin? %>
+               <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <%= t ".games" %> <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><%= link_to t(".all_games"), games_path %></li>
+                  <li><%= link_to t(".add_game"), new_admin_game_path %></li>
+                </ul>
+              </li>
+            <% end %>
             <li><%= link_to t(".about"), "#{root_path}#w3lsaboutaits", {class: "scroll"} %></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                <%= t ".games" %> <b class="caret"></b>
-              </a>
-              <ul class="dropdown-menu">
-                <li><%= link_to "All", games_path %></li>
-                <% Genre.all.map(&:genre).uniq.each do |genre| %>
-                  <li><%= link_to genre, games_path(q: {genres_genre_cont: genre}) %></li>
-                  <li class="divider"></li>
-                <% end %>
-              </ul>
-            </li>
+            <li><%= link_to t(".games"), games_path %></li>
             <li><%= link_to t(".news"), "#{root_path}#wthreeblogsaits", {class: "scroll"} %></li>
             <li><%= link_to t(".contact"), "#{root_path}#agilecontactw3ls", {class: "scroll"} %></li>
           <% end %>
