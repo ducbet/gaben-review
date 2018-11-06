@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :reviews
+  enum user_type: [:member, :admin, :mod]
   mount_uploader :picture, PictureUploader
   attr_reader :remember_token
 
