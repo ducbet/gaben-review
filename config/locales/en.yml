@@ -19,6 +19,8 @@ en:
       news: "NEWS"
       portfolio: "GALLERY"
       contact: "CONTACT"
+      add_game: "ADD GAME"
+      all_games: "ALL GAME"
 
   users:
     name: "Name"
