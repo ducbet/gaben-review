@@ -1,0 +1,2 @@
+$("#reply_" + <%= @reply.id %>).after("<%= j render("replies/reply_form", review: @review) %>");
+$("#reply_" + <%= @reply.id %>).hide();

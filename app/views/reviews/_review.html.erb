@@ -9,15 +9,5 @@
 <% end %>
 <%= render review.reply %>
 <% if logged_in? && !@new_reply.nil? %>
-  <div class="uk-margin" uk-margin id="<%= "reply_form_#{review.id}" %>" style="margin: 10px 0 0 70px;">
-    <%= form_for @new_reply, remote: true do |f| %>
-      <%= f.hidden_field :user_id, value: current_user.id %>
-      <%= f.hidden_field :review_id, value: review.id %>
-
-      <div uk-form-custom="target: true">
-        <%= f.text_field :content, id: "reply_#{review.id}_text_field", class: "uk-input uk-form-width-medium", placeholder: "Enter your reply" %>
-      </div>
-      <%= f.submit "Send", class: "uk-button uk-button-default", style: "font-size:1em" %>
-    <% end %>
-  </div>
+  <%= render "replies/reply_form", review: review %>
 <% end %>
