@@ -5,10 +5,11 @@
 <!-- !@new_reply.nil? de trang show user profile khong hien nut edit comment -->
 <% if review.user == current_user && !@new_reply.nil? %>
   <%= link_to "Edit", edit_review_path(review), remote: true %>
+  <%= link_to "Delete", review_path(review), method: :delete, remote: true %>
 <% end %>
 <%= render review.reply %>
 <% if logged_in? && !@new_reply.nil? %>
-  <div class="uk-margin" uk-margin id="<%= "reply_form_#{review.id}" %>" style="display: none; margin: 10px 0 0 70px;">
+  <div class="uk-margin" uk-margin id="<%= "reply_form_#{review.id}" %>" style="margin: 10px 0 0 70px;">
     <%= form_for @new_reply, remote: true do |f| %>
       <%= f.hidden_field :user_id, value: current_user.id %>
       <%= f.hidden_field :review_id, value: review.id %>
