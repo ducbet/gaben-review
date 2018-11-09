@@ -1,4 +1,5 @@
 <div id="<%= "reply_#{reply.id}" %>">
   <li style="text-align: left; list-style-type:square;">--<%= reply.content %></li>
+  <%= link_to "Edit", edit_reply_path(reply), remote: true %>
   <%= link_to "Delete", reply_path(reply), method: :delete, remote: true %>
 </div>

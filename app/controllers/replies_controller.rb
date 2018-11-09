@@ -16,6 +16,24 @@ class RepliesController < ApplicationController
     end
   end
 
+  def edit
+    @new_reply = @reply
+    @review = @reply.review
+  end
+
+  def update
+    @reply = Reply.find_by id: params[:reply][:reply_id]
+    if @reply && @reply.update_attributes(reply_params)
+      respond_to do |format|
+        format.js
+      end
+    else
+      respond_to do |format|
+        format.js { render "create_failed" }
+      end
+    end
+  end
+
   def destroy
     @reply.destroy unless @reply.nil?
   end
