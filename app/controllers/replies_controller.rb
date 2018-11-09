@@ -1,4 +1,6 @@
 class RepliesController < ApplicationController
+  before_action :find_reply, only: [:edit, :destroy]
+
   def create
     @reply = Reply.new reply_params
     if @reply.save
@@ -14,7 +16,15 @@ class RepliesController < ApplicationController
     end
   end
 
+  def destroy
+    @reply.destroy unless @reply.nil?
+  end
+
   private
+
+  def find_reply
+    @reply = Reply.find_by id: params[:id]
+  end
 
   def reply_params
     params.require(:reply).permit :content, :user_id, :review_id
