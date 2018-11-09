@@ -1,4 +1,6 @@
 class ReviewsController < ApplicationController
+  before_action :find_review, only: [:edit, :destroy]
+
   def create
     @review = Review.new review_params
     if @review.save
@@ -14,7 +16,6 @@ class ReviewsController < ApplicationController
   end
 
   def edit
-    @review = Review.find_by id: params[:id]
     @comment = @review
     @new_reply = Reply.new
     @game = @review.game
@@ -35,7 +36,18 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def destroy
+    @review.destroy unless @review.nil?
+    @comment = Review.new
+    @game = @review.game
+    @reviews = @game.reviews
+  end
+
   private
+
+  def find_review
+    @review = Review.find_by id: params[:id]
+  end
 
   def review_params
     params.require(:review).permit :content, :user_id, :game_id, :score

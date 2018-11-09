@@ -1,7 +1,7 @@
 class Review < ApplicationRecord
   belongs_to :game
   belongs_to :user
-  has_many :reply
+  has_many :reply, dependent: :destroy
 
   validates :content, presence: true
 
