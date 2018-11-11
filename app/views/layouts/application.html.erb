@@ -12,7 +12,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.17/js/uikit-icons.min.js"></script>
 
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="/resources/demos/style.css">
 
     <!-- fix tam ntn da -->
     <% if !controller_name.eql? "static_pages" %>
@@ -25,12 +24,10 @@
 
   <body>
     <%= render "layouts/header" %>
-    <div class="uk-container">
-      <div id="flash_area">
-        <%= render "layouts/flash_message" %>
-      </div>
-      <%= yield %>
+    <div id="flash_area">
+      <%= render "layouts/flash_message" %>
     </div>
+    <%= yield %>
     <%= render "layouts/footer" %>
   </body>
 </html>

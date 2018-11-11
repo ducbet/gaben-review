@@ -1,8 +1,14 @@
-.uk-container {
-  max-width: 100%;
-  padding-left: 0px;
-  padding-right: 0px;
-  background: url(tabs-bg.jpg);
+body {
+  background-image: url(tabs-bg.jpg) !important;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+ .dropdown-menu > li > a {
+  color: #ccc !important;
+  transition: all .2s ease-in;
+}
+.dropdown-menu > li > a:hover {
+  color: #333 !important;
 }
 
 .games_index_image {

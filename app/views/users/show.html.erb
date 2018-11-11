@@ -5,7 +5,11 @@
   <div class="row">
     <div class="col-sm-3"><!--left col-->
       <div class="text-center">
-        <%= image_tag(@user.picture.url, alt: "avatar") %>
+        <% if (@user.picture && @user.picture.url) %>
+          <%= image_tag(@user.picture.url, alt: "avatar") %>
+        <% else %>
+          <%= image_tag("/uploads/user/picture/default_avatar.jpg", alt: "avatar") %>
+        <% end %>
         <%if logged_in? %>
           <br><br>
           <h5>Upload a different photo...</h5>
@@ -40,7 +44,7 @@
       <br><br><br><br>
       <h1><%= t ".review_history" %></h1>
       <br>
-      <%= paginate @reviews %>
+      <%= will_paginate @reviews %>
       <br>
       <% @reviews.each do |review| %>
 
@@ -48,7 +52,7 @@
       <%= render review %>
       <br>
       <% end %>
-      <%= paginate @reviews %>
+      <%= will_paginate @reviews %>
     </div><!--/col-9-->
   </div>
 </div><!--/row-->
