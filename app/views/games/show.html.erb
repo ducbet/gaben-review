@@ -48,8 +48,8 @@
             <% @game.screenshots.each.with_index(1) do |screenshot, index| %>
               <li>
                 <div uk-lightbox>
-                  <%= link_to(screenshot.picture.url, style: "height: 100%") do %>
-                    <%= image_tag(screenshot.picture.url, alt: "Game Robo") %>
+                  <%= link_to screenshot.picture.url, class: "game_image-container" do %>
+                    <%= image_tag screenshot.picture.url, alt: "Game Robo" %>
                   <% end %>
                 </div>
               </li>
