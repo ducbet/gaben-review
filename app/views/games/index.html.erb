@@ -1,9 +1,20 @@
 <div class="container uk-margin">
   <div class="uk-margin">
-    <%= search_form_for @q, id: "search_form", class: "uk-search uk-search-default" do |f| %>
+    <%= search_form_for @q, id: "search_form" do |f| %>
       <%= f.hidden_field :genres_genre_cont, id: "search_genres" %>
-      <span uk-search-icon></span>
-      <%= f.search_field :name_or_details_cont, class: "uk-search-input uk-search-large", placeholder: "Search name or detail" %>
+      <div class="uk-inline">
+        <span class="uk-form-icon" uk-icon="icon: search"></span>
+        <%= f.search_field :name_or_details_cont,
+          class: "uk-input uk-form-width-medium", style: "min-width: 400px",
+          placeholder: "Search name or detail" %>
+      </div>
+      <%= f.search_field :price_gteq, id: "search_min_price",
+        class: "uk-input uk-form-width-medium", style: "width: 100px",
+        placeholder: "Min price", type: "number", min: 0, pattern: "[0-9]*" %>
+      <%= f.search_field :price_lteq, id: "search_max_price",
+        class: "uk-input uk-form-width-medium", style: "width: 100px",
+        placeholder: "Max price", type: "number", min: 0, pattern: "[0-9]*" %>
+      <button type="submit" class="uk-button uk-button-default">Search</button>
     <% end %>
   </div>
   <div class="uk-grid-small uk-grid-divider uk-child-width-auto" uk-grid>
@@ -43,7 +54,13 @@
 </div>
 
 <style>
-  a { font-size: 1em !important; }
+  #search_form button,
+  .uk-subnav a {
+    font-size: 1em !important;
+  }
+  #search_form button {
+    color: #e5e5e5;
+  }
 </style>
 
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
