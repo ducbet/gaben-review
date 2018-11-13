@@ -1,37 +1,67 @@
-<%= search_form_for @q, id: "search_form" do |f| %>
-
-  <%= f.hidden_field :genres_genre_cont, id: "search_genres" %>
-
-  <%= f.label :name_or_details, class: "form_label" %>
-  <%= f.search_field :name_or_details_cont %>
-
+<div class="container uk-margin">
+  <div class="uk-margin">
+    <%= search_form_for @q, id: "search_form" do |f| %>
+      <%= f.hidden_field :genres_genre_cont, id: "search_genres" %>
+      <div class="uk-inline">
+        <span class="uk-form-icon" uk-icon="icon: search"></span>
+        <%= f.search_field :name_or_details_cont,
+          class: "uk-input uk-form-width-medium", style: "min-width: 400px",
+          placeholder: "Search name or detail" %>
+      </div>
+      <%= f.search_field :price_gteq, id: "search_min_price",
+        class: "uk-input uk-form-width-medium", style: "width: 100px",
+        placeholder: "Min price", type: "number", min: 0, pattern: "[0-9]*" %>
+      <%= f.search_field :price_lteq, id: "search_max_price",
+        class: "uk-input uk-form-width-medium", style: "width: 100px",
+        placeholder: "Max price", type: "number", min: 0, pattern: "[0-9]*" %>
+      <button type="submit" class="uk-button uk-button-default">Search</button>
+    <% end %>
+  </div>
+  <div class="uk-grid-small uk-grid-divider uk-child-width-auto" uk-grid>
+    <div>
+      <ul class="uk-subnav uk-subnav-pill" uk-margin>
+        <li uk-filter-control>
+          <%= link_to "Clear Search", request.path %>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <ul class="uk-subnav uk-subnav-pill" uk-margin>
+        <li><%= sort_link(@q, :name) %></li>
+        <li><%= sort_link(@q, :price) %></li>
+      </ul>
+    </div>
+    <div>
+      <ul class="uk-subnav uk-subnav-pill" uk-margin>
+        <% @genres.each do |genre| %>
+          <li><a href="#">
+            <%= button_tag genre, class: "search_genre", style: "color: #999; text-decoration: none;" %>
+          </a></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
   <br>
-  <%= f.label :min_price, class: "form_label" %>
-  <%= f.search_field :price_gteq, id: "search_min_price" %>
+  <div class="apple_pagination" style="background-color: transparent; border: none;">
+    <%= will_paginate @games %>
+  </div>
+  <div class="uk-grid-match" uk-grid>
+    <%= render @games %>
+  </div>
+  <div class="apple_pagination" style="background-color: transparent; border: none;">
+    <%= will_paginate @games %>
+  </div>
+</div>
 
-  <%= f.label :max_price, class: "form_label" %>
-  <%= f.search_field :price_lteq, id: "search_max_price" %>
-
-  <div id="slider-range" style="width: 500px"></div>
-
-  <%= f.submit %>
-<% end %>
-
-<%= link_to "Clear Search", request.path %>
-
-<br>
-<% @genres.each do |genre| %>
-  <%= button_tag genre, class: "search_genre" %>
-<% end %>
-
-<div class="form_label">Sort by:</div>
-<%= sort_link(@q, :name) %>
-<%= sort_link(@q, :price) %>
-
-<br>
-<%= paginate @games %>
-<%= render @games %>
-<%= paginate @games %>
+<style>
+  #search_form button,
+  .uk-subnav a {
+    font-size: 1em !important;
+  }
+  #search_form button {
+    color: #e5e5e5;
+  }
+</style>
 
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>

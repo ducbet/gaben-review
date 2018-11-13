@@ -1,0 +1,12 @@
+<li>
+  <span style="margin-right: 18px;">
+    <%= link_to review.game.name, game_path(review.game) %>
+  </span>
+  <%= review.content %>
+  <div class="wthreeratingaits review">
+    <%= render "shared/star", score: review.score %>
+  </div>
+  <ul class="uk-list uk-list-divider">
+    <%= render review.reply %>
+  </ul>
+</li>

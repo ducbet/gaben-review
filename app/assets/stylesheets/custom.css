@@ -1,8 +1,40 @@
-.uk-container {
-  max-width: 100%;
-  padding-left: 0px;
-  padding-right: 0px;
-  background: url(tabs-bg.jpg);
+body {
+  background-image: url(tabs-bg.jpg) !important;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.dropdown-menu > li > a {
+  color: #ccc !important;
+  transition: all .2s ease-in;
+}
+.dropdown-menu > li > a:hover {
+  color: #333 !important;
+}
+
+.agileinfoitem-image, .game_image-container {
+  display: block;
+  position: relative;
+  padding-top: 60%;
+}
+.agileinfoitem-image img, .game_image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+.wthreeratingaits.review {
+  margin-bottom: 5px;
+}
+.wthreeratingaits.review ul {
+  padding-left: 0;
+}
+.wthreeratingaits.black i,
+.wthreeratingaits.black span {
+  color: #333 !important;
 }
 
 .games_index_image {
