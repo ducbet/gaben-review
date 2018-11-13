@@ -46,12 +46,11 @@
       <br>
       <%= will_paginate @reviews %>
       <br>
-      <% @reviews.each do |review| %>
-
-      <%= link_to review.game.name, game_path(review.game) %>
-      <%= render review %>
-      <br>
-      <% end %>
+      <ul class="uk-list uk-list-divider">
+        <% @reviews.each do |review| %>
+          <%= render "review_history", review: review %>
+        <% end %>
+      </ul>
       <%= will_paginate @reviews %>
     </div><!--/col-9-->
   </div>

@@ -15,20 +15,20 @@
   <br><br>
   <div class="uk-grid">
     <div class="uk-width-1-3@m">
-      <h3 style="color: #fff; text-align: left;">
+      <h4 style="color: #fff; text-align: left;">
         <%= t (".price") %>: $<%= @game.price %>
-      </h3>
+      </h4>
       <br>
-      <h3 style="color: #fff; text-align: left;">
+      <h4 style="color: #fff; text-align: left;">
         <%= t (".genre") %>:
         <span style="color: #fff; text-align: left;">
           <% @game.genres.each do |genre| %>
             <%= genre.genre %>
           <% end %>
         </span>
-      </h3>
+      </h4>
       <br>
-      <h3 style="color: #fff; text-align: left;">
+      <h4 style="color: #fff; text-align: left;">
         <%= t (".avg_score") %>:
         <div
           id="score_ruby_var"
@@ -36,10 +36,10 @@
           data-score="<%= @game.count_average_score %>"
           data-max_score="<%= Settings.max_score %>">
         </div>
-        <div class="wthreeratingaits" id="game_star">
+        <div class="wthreeratingaits" id="game_star" style="margin-top: 5px;">
           <%= render "shared/star", score: @game.count_average_score %>
         </div>
-      </h3>
+      </h4>
     </div>
     <div class="uk-width-expand@m">
       <div uk-slider>
@@ -69,18 +69,20 @@
   <br>
   <div class="uk-card uk-card-default uk-card-body">
     <div class="container">
-      <div style="color: #000; margin-top: 20px;">
-        Reviews
-        <ol>
-          <div id="comment_area">
-            <% if logged_in? && !had_comment_in(@game) %>
-              <%= render "reviews/comment", game_id: @game.id %>
-            <% end %>
-          </div>
-          <div id="reviews">
-            <%= render @reviews %>
-          </div>
-        </ol>
+      <div style="font-size: 1.1em; color: #333; margin-top: 20px;">
+        <h3>Reviews</h3>
+        <ul class="uk-list uk-list-divider">
+          <li>
+            <div id="comment_area">
+              <% if logged_in? && !had_comment_in(@game) %>
+                <%= render "reviews/comment", game_id: @game.id %>
+              <% end %>
+            </div>
+          </li>
+        </ul>
+        <ul id="reviews" class="uk-list uk-list-divider">
+          <%= render @reviews %>
+        </ul>
       </div>
     </div>
   </div>

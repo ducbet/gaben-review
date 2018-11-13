@@ -26,6 +26,16 @@ body {
   bottom: 0;
   right: 0;
 }
+.wthreeratingaits.review {
+  margin-bottom: 5px;
+}
+.wthreeratingaits.review ul {
+  padding-left: 0;
+}
+.wthreeratingaits.black i,
+.wthreeratingaits.black span {
+  color: #333 !important;
+}
 
 .games_index_image {
   width: 300px;

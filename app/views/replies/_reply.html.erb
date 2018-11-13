@@ -1,5 +1,8 @@
-<div id="<%= "reply_#{reply.id}" %>">
-  <li style="text-align: left; list-style-type:square;">--<%= reply.content %></li>
-  <%= link_to "Edit", edit_reply_path(reply), remote: true %>
-  <%= link_to "Delete", reply_path(reply), method: :delete, remote: true %>
-</div>
+<li>
+  <div id="<%= "reply_#{reply.id}" %>">
+    <strong style="margin-right: 18px; cursor: pointer;"><%= reply.user.nick_name %></strong>
+    <%= reply.content %>
+    <%= link_to "Edit", edit_reply_path(reply), remote: true, style: "margin-left: 10px;" %>
+    <%= link_to "Delete", reply_path(reply), method: :delete, remote: true, style: "margin-left: 5px;" %>
+  </div>
+</li>

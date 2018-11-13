@@ -1,13 +1,22 @@
-<li style="text-align: left; list-style-type:square;"><%= review.content %></li>
-<div class="wthreeratingaits">
-  <%= render "shared/star", score: review.score %>
-</div>
-<!-- !@new_reply.nil? de trang show user profile khong hien nut edit comment -->
-<% if review.user == current_user && !@new_reply.nil? %>
-  <%= link_to "Edit", edit_review_path(review), remote: true %>
-  <%= link_to "Delete", review_path(review), method: :delete, remote: true %>
-<% end %>
-<%= render review.reply %>
-<% if logged_in? && !@new_reply.nil? %>
-  <%= render "replies/reply_form", review: review %>
-<% end %>
+<li>
+  <div style="margin-bottom: 5px;">
+    <strong style="text-transform: capitalize; cursor: pointer;">
+      <%= review.user.nick_name %>
+    </strong>
+  </div>
+  <%= review.content %>
+  <div class="wthreeratingaits review black">
+    <%= render "shared/star", score: review.score %>
+  </div>
+  <!-- !@new_reply.nil? de trang show user profile khong hien nut edit comment -->
+  <% if review.user == current_user && !@new_reply.nil? %>
+    <%= link_to "Edit", edit_review_path(review), remote: true %>
+    <%= link_to "Delete", review_path(review), method: :delete, remote: true %>
+  <% end %>
+  <ul class="uk-list uk-list-striped">
+    <%= render review.reply %>
+    <% if logged_in? && !@new_reply.nil? %>
+      <%= render "replies/reply_form", review: review %>
+    <% end %>
+  </ul>
+</li>
