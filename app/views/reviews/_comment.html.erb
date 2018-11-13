@@ -3,10 +3,13 @@
   <%= f.hidden_field :game_id, value: game_id %>
   <%= f.hidden_field :score %>
 
-  <%= f.label :content, "comment" %>
-  <div class="wthreeratingaits star_review">
-    <%= render "shared/star_review", score: @comment.score %>
+  <div class="uk-margin" uk-margin>
+    <div class="wthreeratingaits review star_review" style="margin-bottom: 0;">
+      <%= render "shared/star_review", score: @comment.score %>
+    </div>
+    <div uk-form-custom="target: true">
+      <%= f.text_field :content, id: "review_text_field", class: "uk-input", placeholder: "Enter your comment" %>
+    </div>
+    <%= f.submit "Send", class: "uk-button uk-button-primary", style: "font-size:1em" %>
   </div>
-  <%= f.text_field :content, id: "review_text_field" %>
-  <%= f.submit "Send", class: "uk-button uk-button-primary", style: "font-size:1em" %>
 <% end %>
