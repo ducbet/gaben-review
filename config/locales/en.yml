@@ -87,6 +87,8 @@ en:
     add_game_failed: "Add game faild"
     login_fail: "Invalid email/password combination."
     updated: "Profile updated."
+    0_star: "Are you sure about giving 0 stars for this game?"
+
   games:
     name: "Name"
     details: "Details"

@@ -21,6 +21,9 @@
     var $review_score = $("#review_score");
     review_score.value = this.id.slice(-1);
     $("#score_ruby_var").data("comment_score", this.id.slice(-1));
+
+    var data = {confirm: ""}
+    $("#submit_comment").attr("data-confirm", data.confirm);
   });
 
   $(".fa-cmt").mouseover(function() {
