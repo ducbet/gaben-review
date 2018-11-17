@@ -85,6 +85,8 @@ vi:
     add_game_failed: "Thêm trò chơi thất bại"
     login_fail: "Email hoặc mật khẩu không chính xác."
     updated: "Đã cập nhật hồ sơ."
+    0_star: "Bạn có chắc muốn đánh giá 0 sao cho trò chơi này?"
+
   games:
     name: "Tên"
     details: "Mô tả"
