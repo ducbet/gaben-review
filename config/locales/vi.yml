@@ -86,6 +86,8 @@ vi:
     welcome: "Chào mừng bạn đến với Chim store"
     create_user_failed: "Tạo người dùng thất bại"
     add_game_success: "Thêm trò chơi thành công"
+    delete_game_success: "Xóa trò chơi thành công"
+    delete_game_failed: "Xóa trò chơi thất bại"
     add_genre_success: "Thêm thể loại thành công"
     add_game_failed: "Thêm trò chơi thất bại"
     add_genre_failed: "Thêm thể loại thất bại"
@@ -98,13 +100,19 @@ vi:
     details: "Mô tả"
     price: "Giá"
     add_game: "Thêm trò chơi"
+    update_game: "Cập nhật trò chơi"
     new:
       add: "Thêm"
+    edit:
+      update: "Cập nhật"
     show:
       info: "Thông tin game"
       price: "Giá"
       genre: "Thể loại"
       avg_score: "Điểm trung bình"
+      edit: "Sửa"
+      update: "Cập nhật"
+      delete: "Xóa"
 
   genres:
     name: "Tên"

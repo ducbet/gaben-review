@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   scope "(:locale)", locale: /en|vi/ do
     namespace :admin do
       root "static_pages#home"
-      resources :games, only: [:new, :create]
+      resources :games, only: [:new, :create, :edit, :update, :destroy]
       resources :genres, only: [:new, :create]
     end
     delete "/logout", to: "sessions#destroy"
