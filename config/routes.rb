@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     namespace :admin do
       root "static_pages#home"
       resources :games, only: [:new, :create]
+      resources :genres, only: [:new, :create]
     end
     delete "/logout", to: "sessions#destroy"
     get  "/signup", to: "users#new"

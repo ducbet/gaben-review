@@ -6,6 +6,9 @@ class Game < ApplicationRecord
   accepts_nested_attributes_for :screenshots, allow_destroy: true, reject_if: proc { |attributes| attributes['picture'].blank? }
   mount_uploader :picture, PictureUploader
 
+  validates :name, presence: true, uniqueness: {case_sensitive: false}
+  validates :details, presence: true
+  validates :price, presence: true
   validates :picture, presence: true
 
   def count_average_score

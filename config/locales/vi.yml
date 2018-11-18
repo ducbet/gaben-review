@@ -77,12 +77,18 @@ vi:
               blank: "Xin hãy nhập mật khẩu hiện tại"
             reset_password_token:
               invalid: "Đã thiết lập mật khẩu mới"
+        genre:
+          attributes:
+            genre:
+              taken: "Thể loại này đã tồn tại"
 
   flash:
     welcome: "Chào mừng bạn đến với Chim store"
     create_user_failed: "Tạo người dùng thất bại"
     add_game_success: "Thêm trò chơi thành công"
+    add_genre_success: "Thêm thể loại thành công"
     add_game_failed: "Thêm trò chơi thất bại"
+    add_genre_failed: "Thêm thể loại thất bại"
     login_fail: "Email hoặc mật khẩu không chính xác."
     updated: "Đã cập nhật hồ sơ."
     0_star: "Bạn có chắc muốn đánh giá 0 sao cho trò chơi này?"
@@ -99,3 +105,9 @@ vi:
       price: "Giá"
       genre: "Thể loại"
       avg_score: "Điểm trung bình"
+
+  genres:
+    name: "Tên"
+    add_genres: "Thêm thể loại"
+    new:
+      add: "Thêm"
