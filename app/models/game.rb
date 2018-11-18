@@ -1,6 +1,7 @@
 class Game < ApplicationRecord
   has_many :reviews
-  has_many :genres
+  has_many :game_genres
+  has_many :genres, through: :game_genres
   has_many :screenshots
   accepts_nested_attributes_for :screenshots, allow_destroy: true, reject_if: proc { |attributes| attributes['picture'].blank? }
   mount_uploader :picture, PictureUploader

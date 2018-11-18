@@ -3,7 +3,7 @@ class Admin::GamesController < ApplicationController
 
   def new
     @game = Game.new
-    @genres = Genre.all_genre
+    @genres = Genre.all.map(&:genre)
   end
 
   def create
@@ -15,17 +15,18 @@ class Admin::GamesController < ApplicationController
         end
       end
       unless params[:genre].nil?
-        genres = Genre.all_genre
+        genres = Genre.all.map(&:genre)
         params[:genre].each do |genre, isChecked|
           if isChecked.to_i == 1
-            @game.genres.create!(genre: genre)
+            g = Genre.find_by genre: genre
+            @game.game_genres.create!(genre_id: g.id)
           end
         end
       end
       flash[:success] = t "flash.add_game_success"
       redirect_to @game
     else
-      @genres = Genre.all_genre
+      @genres = Genre.all.map(&:genre)
       flash[:danger] = t "flash.add_game_failed"
       render :new
     end
