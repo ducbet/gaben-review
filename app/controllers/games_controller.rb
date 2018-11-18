@@ -2,7 +2,7 @@ class GamesController < ApplicationController
   def index
     @q = Game.ransack(params[:q])
     @games = @q.result.includes(:genres).paginate(:page => params[:page], :per_page => 9)
-    @genres = Genre.genre_uniq
+    @genres = Genre.all.map(&:genre)
   end
 
   def show

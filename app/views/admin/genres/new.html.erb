@@ -1,0 +1,12 @@
+<% provide :title, t("genres.add_genres") %>
+<% provide :button_text, t("genres.new.add") %>
+<% provide :url, admin_genres_path %>
+
+<div class="uk-card uk-card-body" style="color: #fff;">
+  <div class="uk-card-title">
+    <h1><%= t "genres.add_genres" %></h1>
+  </div>
+  <div class="uk-card-body">
+    <%= render "form" %>
+  </div>
+</div>

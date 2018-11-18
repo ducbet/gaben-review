@@ -80,11 +80,17 @@ en:
               blank: "Current password can't be blank"
             reset_password_token:
               invalid: "Already changed password"
+        genre:
+          attributes:
+            genre:
+              taken: "Genre existing"
   flash:
     welcome: "Welcome to Chim store"
     create_user_failed: "Fail to create user"
-    add_game_success: "Add ame succés"
+    add_game_success: "Add game success"
+    add_genre_success: "Add genre success"
     add_game_failed: "Add game faild"
+    add_genre_failed: "Add genre faild"
     login_fail: "Invalid email/password combination."
     updated: "Profile updated."
     0_star: "Are you sure about giving 0 stars for this game?"
@@ -101,3 +107,11 @@ en:
       price: "Price"
       genre: "Genre"
       avg_score: "Average Score"
+
+  genres:
+    name: "Name"
+    add_genres: "Add genres"
+    new:
+      add: "Add"
+
+
