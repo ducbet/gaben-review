@@ -14,12 +14,14 @@
     </div>
   </div>
 
-  <% @genres.each do |genre| %>
-    <div>
-      <%= check_box :genre, genre %>
-      <%= f.label :genre, genre %>
-    </div>
-  <% end %>
+  <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
+    <% @genres.each do |genre| %>
+      <label>
+        <%= check_box :genre, genre, class: "uk-checkbox", style: "margin: -2px 0 0;" %>
+        <%= genre %>
+      </label>
+    <% end %>
+  </div>
 
   <div class="uk-margin">
     <%= f.label :details, t("games.details") %>
