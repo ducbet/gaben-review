@@ -1,0 +1,12 @@
+<li>
+  <div id="<%= "reply_#{reply.id}" %>">
+    <div style="margin-bottom: 5px;">
+      <strong style="cursor: pointer;"><%= reply.user.nick_name %></strong>
+    </div>
+    <div><%= reply.content %></div>
+    <% if reply.user == current_user %>
+      <%= link_to "Edit", edit_reply_path(reply), remote: true %>
+      <%= link_to "Delete", reply_path(reply), method: :delete, remote: true, style: "margin-left: 5px;" %>
+    <% end %>
+  </div>
+</li>

@@ -1,4 +1,3 @@
 class Genre < ApplicationRecord
-  belongs_to :game
-  enum genre: ["action", "fantasy"]
+  validates :genre, presence: true, uniqueness: {case_sensitive: false}
 end

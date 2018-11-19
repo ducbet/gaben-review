@@ -1,9 +1,11 @@
 class User < ApplicationRecord
   has_many :reviews
+  enum user_type: [:member, :admin, :mod]
+  mount_uploader :picture, PictureUploader
   attr_reader :remember_token
 
   VALID_EMAIL_REGEX = /\A[\w.\-]+@[a-z+\d\-.]+\.+[a-z]+\z/i
-   validates :nick_name, presence: true,
+  validates :nick_name, presence: true,
     length: {maximum: Settings.name_max_length}
   validates :email, presence: true,
     length: {maximum: Settings.email_max_length},

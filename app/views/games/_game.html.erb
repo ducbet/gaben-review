@@ -1,29 +1,24 @@
-<ul>
-  <%= image_tag game.picture.url %>
-
-  <li>name: <%= game.name %>
-
-  <li>details: <%= game.details %></li>
-
-  <li>genre:
-    <% game.genres.each do |genre| %>
-      <%= genre.genre %>
-    <% end %>
-  </li>
-
-  <li>price: $<%= game.price %></li>
-
-  <% game.screenshots.each do |screenshot| %>
-    <%= image_tag screenshot.picture %>
-  <% end %>
-
-  <li>reviews:
-    <ol>
-      <% game.reviews.each do |review| %>
-        <li>score: <%= review.score %>, content: <%= review.content %></li>
+<div class="uk-width-1-3@m">
+  <div class="uk-card uk-card-default">
+    <div class="uk-card-media-top">
+      <%= link_to game_path(game), class: "game_image-container" do %>
+        <%= image_tag game.picture.url, alt: "" %>
       <% end %>
-    </ol>
-  </li>
-
-</ul>
-
+    </div>
+    <div class="uk-card-body">
+      <h3 class="uk-card-title">
+        <%= link_to game_path(game), style: "color: #333; font-weight: bolder;" do %>
+          <%= game.name %>
+        <% end %>    
+      </h3>
+      <br>
+      <p><%= game.details %></p>
+      <p>genre:
+        <% game.genres.each do |genre| %>
+          <%= button_tag genre.genre, class: "search_genre" %>
+        <% end %>
+      </p>
+      <p>price: $<%= game.price %></p>
+    </div>
+  </div>
+</div>

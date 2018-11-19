@@ -19,6 +19,8 @@ en:
       news: "NEWS"
       portfolio: "GALLERY"
       contact: "CONTACT"
+      add_game: "ADD GAME"
+      all_games: "ALL GAME"
 
   users:
     name: "Name"
@@ -28,6 +30,7 @@ en:
     show:
       profile: "Profile"
       edit: "Edit profile"
+      review_history: "Review History"
     new:
       signup: "Sign up"
       name: "Name"
@@ -77,8 +80,46 @@ en:
               blank: "Current password can't be blank"
             reset_password_token:
               invalid: "Already changed password"
+        genre:
+          attributes:
+            genre:
+              taken: "Genre existing"
   flash:
     welcome: "Welcome to Chim store"
-    create_failed: "Fail to create user"
+    create_user_failed: "Fail to create user"
+    add_game_success: "Add game success"
+    delete_game_success: "Delete game success"
+    delete_game_failed: "Delete game failed"
+    add_genre_success: "Add genre success"
+    add_game_failed: "Add game failed"
+    add_genre_failed: "Add genre failed"
     login_fail: "Invalid email/password combination."
     updated: "Profile updated."
+    0_star: "Are you sure about giving 0 stars for this game?"
+
+  games:
+    name: "Name"
+    details: "Details"
+    price: "Price"
+    add_game: "Add game"
+    update_game: "Update game"
+    new:
+      add: "Add"
+    edit:
+      update: "Update"
+    show:
+      info: "Information"
+      price: "Price"
+      genre: "Genre"
+      avg_score: "Average Score"
+      edit: "Edit"
+      update: "Update"
+      delete: "Delete"
+
+  genres:
+    name: "Name"
+    add_genres: "Add genres"
+    new:
+      add: "Add"
+
+

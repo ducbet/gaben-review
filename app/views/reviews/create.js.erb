@@ -1,0 +1,3 @@
+$("#comment_area").html("");
+$("#game_star").html("<%= j render("shared/star", score: @review.game.count_average_score) %>");
+$("#reviews").html("<li><%= j render(@review.game.reviews) %></li>");

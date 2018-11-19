@@ -1,0 +1,3 @@
+$("#reply_form_" + <%= @reply.review.id %> + "_" + <%= @reply.id %>).remove();
+$("#reply_" + <%= @reply.id %>).html("<li><%= @reply.content %></li>");
+$("#reply_" + <%= @reply.id %>).show();

@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   before_action :correct_user, only: [:edit, :update]
 
   def show
+    @reviews = @user.reviews.paginate(:page => params[:page], :per_page => 9)
   end
 
   def new
@@ -16,7 +17,7 @@ class UsersController < ApplicationController
       flash[:success] = t "flash.welcome"
       redirect_to root_path
     else
-      flash[:danger] = t "flash.create_failed"
+      flash[:danger] = t "flash.create_user_failed"
       render :new
     end
   end
@@ -36,7 +37,7 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit :nick_name, :email, :password,
-      :password_confirmation
+      :password_confirmation, :picture
   end
 
   def correct_user

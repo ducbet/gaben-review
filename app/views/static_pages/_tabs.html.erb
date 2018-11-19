@@ -25,13 +25,7 @@
                 <% end %>
                 <h4><%= rand(1000..5000) %> Downloads</h4>
                 <div class="wthreeratingaits">
-                  <ul>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-star-half-o" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
-                  </ul>
+                  <%= render "shared/star", score: game.count_average_score %>
                 </div>
               </div>
             <% end %>
@@ -41,19 +35,17 @@
           <div id="owl-demo1" class="owl-carousel text-center">
             <% support.game_new.each do |game| %>
               <div class="item">
-                <div class="agileinfoitem-image">
-                  <%= image_tag(game.picture.url, alt: "Game Robo") %>
-                </div>
-                <h3><%= game.name %></h3>
+                <%= link_to game do %>
+                  <div class="agileinfoitem-image">
+                    <%= image_tag(game.picture.url, alt: "Game Robo") %>
+                  </div>
+                <% end %>
+                <%= link_to game do %>
+                  <h3><%= game.name %></h3>
+                <% end %>
                 <h4><%= rand(1000..5000) %> Downloads</h4>
                 <div class="wthreeratingaits">
-                  <ul>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                  </ul>
+                  <%= render "shared/star", score: game.count_average_score %>
                 </div>
               </div>
             <% end %>
@@ -63,19 +55,17 @@
           <div id="owl-demo2" class="owl-carousel text-center">
             <% support.game_best_sellers.each do |game| %>
               <div class="item">
-                <div class="agileinfoitem-image">
-                  <%= image_tag(game.picture.url, alt: "Game Robo") %>
-                </div>
-                <h3><%= game.name %></h3>
+                <%= link_to game do %>
+                  <div class="agileinfoitem-image">
+                    <%= image_tag(game.picture.url, alt: "Game Robo") %>
+                  </div>
+                <% end %>
+                <%= link_to game do %>
+                  <h3><%= game.name %></h3>
+                <% end %>
                 <h4><%= rand(1000..5000) %> Downloads</h4>
                 <div class="wthreeratingaits">
-                  <ul>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                  </ul>
+                  <%= render "shared/star", score: game.count_average_score %>
                 </div>
               </div>
             <% end %>
@@ -85,19 +75,17 @@
           <div id="owl-demo3" class="owl-carousel text-center">
             <% support.game_recommend.each do |game| %>
               <div class="item">
-                <div class="agileinfoitem-image">
-                  <%= image_tag(game.picture.url, alt: "Game Robo") %>
-                </div>
-                <h3><%= game.name %></h3>
+                <%= link_to game do %>
+                  <div class="agileinfoitem-image">
+                    <%= image_tag(game.picture.url, alt: "Game Robo") %>
+                  </div>
+                <% end %>
+                <%= link_to game do %>
+                  <h3><%= game.name %></h3>
+                <% end %>
                 <h4><%= rand(1000..5000) %> Downloads</h4>
                 <div class="wthreeratingaits">
-                  <ul>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                  </ul>
+                  <%= render "shared/star", score: game.count_average_score %>
                 </div>
               </div>
             <% end %>

@@ -11,18 +11,23 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.17/js/uikit.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.17/js/uikit-icons.min.js"></script>
 
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <!-- fix tam ntn da -->
+    <% if !controller_name.eql? "static_pages" %>
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <% end %>
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
     <%= render "layouts/header" %>
-    <div class="uk-container">
-      <div id="flash_area">
-        <%= render "layouts/flash_message" %>
-      </div>
-      <%= yield %>
+    <div id="flash_area">
+      <%= render "layouts/flash_message" %>
     </div>
+    <%= yield %>
     <%= render "layouts/footer" %>
   </body>
 </html>
