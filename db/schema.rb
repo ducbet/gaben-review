@@ -35,7 +35,6 @@ ActiveRecord::Schema.define(version: 2018_11_17_094164) do
     t.string "genre"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["genre"], name: "index_genres_on_genre", unique: true
   end
 
   create_table "replies", force: :cascade do |t|
