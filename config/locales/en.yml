@@ -21,12 +21,18 @@ en:
       contact: "CONTACT"
       add_game: "ADD GAME"
       all_games: "ALL GAME"
+      users: "Users"
 
   users:
     name: "Name"
     email: "Email"
     pass: "Password"
     confirm: "Confirmation"
+    role: "Role"
+    index:
+      users: "Users"
+      set_member: "Set member"
+      set_maker: "Set maker"
     show:
       profile: "Profile"
       edit: "Edit profile"
