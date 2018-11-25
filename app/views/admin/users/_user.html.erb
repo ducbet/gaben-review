@@ -1,0 +1,5 @@
+<li>
+  <%= link_to user.nick_name, user_path(user) %>
+  - <%= user.email %>
+  <%= render "admin/shared/maker_form", user: user %>
+</li>

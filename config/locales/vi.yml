@@ -19,12 +19,18 @@ vi:
       news: "Tin tức"
       portfolio: "Bộ sưu tập"
       contact: "Liên hệ"
+      users: "Thành viên"
 
   users:
     name: "Tên"
     email: "Email"
     password: "Mật khẩu"
     confirm: "Xác nhận mật khẩu"
+    role: "Quyền"
+    index:
+      users: "Thành viên"
+      set_member: "Set member"
+      set_maker: "Set maker"
     show:
       profile: "Thông tin cá nhân"
       edit: "Thay đổi thông tin cá nhân"

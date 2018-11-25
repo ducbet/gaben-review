@@ -1,0 +1,10 @@
+<div id="maker-form-<%= user.id %>">
+  <%= form_for :privileges, url: admin_user_path(user), remote: true,
+    html: {method: :patch} do |f| %>
+    <% if user.maker? %>
+      <%= f.submit t("users.index.set_member") %>
+    <% else %>
+      <%= f.submit t("users.index.set_maker") %>
+    <% end %>
+  <% end %>
+</div>

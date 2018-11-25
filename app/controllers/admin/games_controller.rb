@@ -1,6 +1,7 @@
 class Admin::GamesController < ApplicationController
   before_action :admin_required
   before_action :find_game, only: [:edit, :update, :destroy]
+  before_action :correct_maker?, only: [:edit, :update, :destroy]
 
   def edit
     @game_genres = @game.genres.map(&:genre)
@@ -69,6 +70,10 @@ class Admin::GamesController < ApplicationController
 
   private
 
+  def correct_maker?
+    current_user.make @game
+  end
+
   def find_game
     @game = Game.find_by id: params[:id]
   end
@@ -78,7 +83,7 @@ class Admin::GamesController < ApplicationController
   end
 
   def admin_required
-    return if current_user && current_user.admin?
+    return if current_user && (current_user.admin? || current_user.maker?)
     redirect_to root_url
   end
 end

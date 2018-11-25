@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_many :reviews
-  enum user_type: [:member, :admin, :mod]
+  has_many :games
+  enum user_type: [:member, :admin, :maker]
   mount_uploader :picture, PictureUploader
   attr_reader :remember_token
 
@@ -14,6 +15,8 @@ class User < ApplicationRecord
     length: {minimum: Settings.pass_min_length}
    before_save :email_downcase
   has_secure_password
+
+  scope :except_admin, ->() {where.not user_type: 1}
 
   def remember
     @remember_token = User.new_token
@@ -46,6 +49,10 @@ class User < ApplicationRecord
 
   def current_user? current_user
     self == current_user
+  end
+
+  def make game
+    self == game.user
   end
 
   private

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
       root "static_pages#home"
       resources :games, only: [:new, :create, :edit, :update, :destroy]
       resources :genres, only: [:new, :create]
+      resources :users, only: [:index, :update]
     end
     delete "/logout", to: "sessions#destroy"
     get  "/signup", to: "users#new"
