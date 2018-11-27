@@ -7,9 +7,11 @@
     <div class="wthreeratingaits review star_review" style="margin-bottom: 0;">
       <%= render "shared/star_review", score: @comment.score %>
     </div>
-    <div uk-form-custom="target: true">
-      <%= f.text_field :content, id: "review_text_field", class: "uk-input", placeholder: "Enter your comment" %>
+    <div class="uk-margin" style="margin-bottom: 10px;">
+      <%= f.text_area :content, id: "review_text_field", class: "uk-textarea", rows: 2, placeholder: "Enter your comment" %>
     </div>
-    <%= f.submit "Send", id: "submit_comment", class: "uk-button uk-button-primary", style: "font-size:1em", data: {confirm: t("flash.0_star")} %>
+    <div class="uk-margin">
+      <%= f.submit "Comment", id: "submit_comment", class: "uk-button uk-button-primary", style: "font-size:1em", data: {confirm: t("flash.0_star")} %>
+    </div>
   </div>
 <% end %>

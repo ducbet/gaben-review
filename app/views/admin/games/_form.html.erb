@@ -15,6 +15,7 @@
   </div>
 
   <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
+    <label style="display: block; width: 100%; margin-bottom: 5px;">Genre</label>
     <% @genres.each do |genre| %>
       <label>
         <%= check_box :genre, genre, class: "uk-checkbox", style: "margin: -2px 0 0;" %>
@@ -42,9 +43,10 @@
     </div>
   </div>
   <span class="picture">
+    <label>Cover</label>
     <%= f.file_field :picture %>
   </span>
-
+  <br>
   <%= f.fields_for :screenshot do |p| %>
     <div class="field">
       <%= p.label :screenshot %><br>
