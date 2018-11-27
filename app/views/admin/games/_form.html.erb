@@ -4,6 +4,7 @@
       <%= render "shared/error_messages", object: @game %>
     </div>
   </div>
+
   <div class="uk-margin">
     <%= f.label :name, t("games.name") %>
     <div class="uk-form-controls">
@@ -27,12 +28,10 @@
   <div class="uk-margin">
     <%= f.label :details, t("games.details") %>
     <div class="uk-form-controls">
-      <div class="uk-inline">
-        <span class="uk-form-icon" uk-icon="icon: info"></span>
-        <%= f.text_field :details, class: "uk-input uk-form-width-large" %>
-      </div>
+      <%= f.text_area :details, class: "uk-textarea uk-form-width-large", rows: 5 %>
     </div>
   </div>
+
   <div class="uk-margin">
     <%= f.label :price, t("games.price") %>
     <div class="uk-form-controls">
@@ -42,6 +41,7 @@
       </div>
     </div>
   </div>
+
   <span class="picture">
     <label>Cover</label>
     <%= f.file_field :picture %>
