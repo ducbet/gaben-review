@@ -5,10 +5,12 @@
       <%= f.hidden_field :review_id, value: review.id %>
       <%= f.hidden_field :reply_id, value: @new_reply.id %>
 
-      <div uk-form-custom="target: true">
-        <%= f.text_field :content, id: "reply_#{review.id}_text_field", class: "uk-input uk-form-width-medium", placeholder: "Enter your reply" %>
+      <div class="uk-margin" style="margin-bottom: 10px;">
+        <%= f.text_area :content, id: "reply_#{review.id}_text_field", class: "uk-textarea", rows: 2, placeholder: "Enter your reply" %>
       </div>
-      <%= f.submit "Send", class: "uk-button uk-button-default", style: "font-size:1em" %>
+      <div class="uk-margin" style="margin-top: 10px !important;">
+        <%= f.submit "Reply", class: "uk-button uk-button-default", style: "font-size:1em" %>
+      </div>
     <% end %>
   </div>
 </li>
