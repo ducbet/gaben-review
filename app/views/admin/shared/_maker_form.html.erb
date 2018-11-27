@@ -2,9 +2,9 @@
   <%= form_for :privileges, url: admin_user_path(user), remote: true,
     html: {method: :patch} do |f| %>
     <% if user.maker? %>
-      <%= f.submit t("users.index.set_member") %>
+      <%= f.submit t("users.index.set_member"), class: "uk-button uk-button-secondary", style: "font-size: 1em;" %>
     <% else %>
-      <%= f.submit t("users.index.set_maker") %>
+      <%= f.submit t("users.index.set_maker"), class: "uk-button uk-button-default", style: "font-size: 1em;" %>
     <% end %>
   <% end %>
 </div>
