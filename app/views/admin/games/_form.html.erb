@@ -42,6 +42,15 @@
     </div>
   </div>
 
+  <div class="uk-margin">
+    <%= f.label :trailer, t("games.trailers") %>
+    <%= f.fields_for :trailer do |p| %>
+      <div class="uk-form-controls">
+        <%= p.text_area :trailer, placeholder: "Youtube link, separated by line breaks", class: "uk-textarea uk-form-width-large", rows: 2 %>
+      </div>
+    <% end %>
+  </div>
+
   <span class="picture">
     <label>Cover</label>
     <%= f.file_field :picture %>

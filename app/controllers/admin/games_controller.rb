@@ -34,6 +34,7 @@ class Admin::GamesController < ApplicationController
 
   def create
     @game = Game.new game_params
+    @game.user = current_user
     if @game.save
       unless params[:screenshots].nil?
         params[:screenshots]['picture'].each do |picture|
@@ -47,6 +48,11 @@ class Admin::GamesController < ApplicationController
             g = Genre.find_by genre: genre
             @game.game_genres.create!(genre_id: g.id)
           end
+        end
+      end
+      unless params[:game][:trailer].nil?
+        params[:game][:trailer][:trailer].split("\n").each do |link|
+          @game.trailers.create!(youtube_link: link)
         end
       end
       flash[:success] = t "flash.add_game_success"
@@ -79,7 +85,8 @@ class Admin::GamesController < ApplicationController
   end
 
   def game_params
-    params.require(:game).permit :name, :details, :price, :picture, screenshots_attributes: [:id, :game_id, :picture]
+    params.require(:game).permit :name, :details, :price, :picture, screenshots_attributes: [:id, :game_id, :picture],
+      trailers_attributes: [:id, :game_id, :youtube_link]
   end
 
   def admin_required
