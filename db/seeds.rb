@@ -42,6 +42,8 @@ game.screenshots.create! picture: Rails.root.join("app/assets/images/surviv1.png
 game.screenshots.create! picture: Rails.root.join("app/assets/images/surviv2.png").open
 game.screenshots.create! picture: Rails.root.join("app/assets/images/surviv3.png").open
 
+game.trailers.create! youtube_link: "https://www.youtube.com/watch?v=9JqXI9DOsuE"
+game.trailers.create! youtube_link: "https://www.youtube.com/watch?v=wOU9J-O_oEo"
 
 game1 = user2.games.create! name: "Age of empires",
 details: "Age of empires detail",

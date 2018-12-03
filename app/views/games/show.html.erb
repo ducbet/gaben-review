@@ -75,6 +75,10 @@
   </div>
 </div>
 
+<% @game.trailers.each do |trailer| %>
+  <%= youtube_embed trailer.youtube_link %>
+<% end %>
+
 <div>
   <br>
   <br>
