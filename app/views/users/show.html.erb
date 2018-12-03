@@ -23,8 +23,9 @@
 
       <div class="panel panel-default">
         <%if logged_in? %>
-          <div class="panel-heading"><%= link_to t(".edit"), edit_user_path(current_user) %> <i class="fa fa-link fa-1x"></i></div>
+          <div class="panel-heading"><i class="fa fa-link fa-1x"></i> <%= link_to t(".edit"), edit_user_path(current_user) %> </div>
         <% end %>
+        <div class="panel-heading"><i class="fa fa-heart fa-1x"></i> <%= link_to t(".favorite"), wishlists_path %> </div>
       </div>
     </div><!--/col-3-->
     <div class="col-sm-9">

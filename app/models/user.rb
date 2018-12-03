@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_many :reviews
-  has_many :games
+  has_many :wishlists
+  has_many :games, through: :wishlists
   enum user_type: [:member, :admin, :maker]
   mount_uploader :picture, PictureUploader
   attr_reader :remember_token

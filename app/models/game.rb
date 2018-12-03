@@ -4,6 +4,8 @@ class Game < ApplicationRecord
   has_many :genres, through: :game_genres
   has_many :screenshots, dependent: :destroy
   has_many :trailers, dependent: :destroy
+  has_many :wishlists
+  has_many :users, through: :wishlists
   belongs_to :user
   accepts_nested_attributes_for :screenshots, allow_destroy: true, reject_if: proc { |attributes| attributes['picture'].blank? }
   mount_uploader :picture, PictureUploader
