@@ -37,3 +37,4 @@ config/environments/*.local.yml
 public/uploads/game/picture/*
 public/uploads/screenshot/picture/*
 public/uploads/user/picture/*
+public/uploads/tmp/*
