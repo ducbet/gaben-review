@@ -1,4 +1,12 @@
-<h1 style="color: white">Wishlist</h1>
-<% @games.each do |game| %>
-  <h2><%= link_to game.name, game_path(game) %></h2>
-<% end %>
+<div class="container uk-margin">
+  <h1 style="color: white">Wishlist</h1>
+  <div class="apple_pagination" style="background-color: transparent; border: none;">
+    <%= will_paginate @games %>
+  </div>
+  <div class="uk-grid-match" uk-grid>
+    <%= render @games %>
+  </div>
+  <div class="apple_pagination" style="background-color: transparent; border: none;">
+    <%= will_paginate @games %>
+  </div>
+</div>

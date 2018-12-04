@@ -1,6 +1,6 @@
 class WishlistsController < ApplicationController
   def index
-    @games = current_user.games
+    @games = current_user.games.paginate(:page => params[:page], :per_page => 9)
   end
 
   def create
