@@ -41,6 +41,7 @@ class ReviewsController < ApplicationController
     @comment = Review.new
     @game = @review.game
     @reviews = @game.reviews
+    @new_reply = Reply.new
   end
 
   private
