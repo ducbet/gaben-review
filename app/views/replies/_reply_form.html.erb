@@ -1,14 +1,12 @@
 <li id="<%= "reply_form_#{review.id}_#{@new_reply.id}" %>">
-  <div class="uk-margin" uk-margin style="margin: 10px 0 0 70px;">
+  <div class="uk-margin" uk-margin style="margin: 10px 0 0 20px;">
     <%= form_for @new_reply, remote: true do |f| %>
       <%= f.hidden_field :user_id, value: current_user.id %>
       <%= f.hidden_field :review_id, value: review.id %>
       <%= f.hidden_field :reply_id, value: @new_reply.id %>
 
-      <div class="uk-margin" style="margin-bottom: 10px;">
+      <div class="uk-margin" style="margin-bottom: 10px; width: 50%; display: flex;">
         <%= f.text_area :content, id: "reply_#{review.id}_text_field", class: "uk-textarea", rows: 2, placeholder: "Enter your reply" %>
-      </div>
-      <div class="uk-margin" style="margin-top: 10px !important;">
         <%= f.submit "Reply", class: "uk-button uk-button-default", style: "font-size:1em" %>
       </div>
     <% end %>
