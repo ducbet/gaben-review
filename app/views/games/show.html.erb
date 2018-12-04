@@ -10,7 +10,12 @@
 </div>
 <div class="container" id="content">
   <br><br>
-  <h2 style="color: #fff"><%= @game.name %></h2>
+  <h2 style="color: #fff">
+    <%= @game.name %>
+    <% unless current_user.nil? %>
+      <%= render "favorite_button" %>
+    <% end %>
+  </h2>
   <% if !current_user.nil? && (current_user.admin? ||
     (current_user.maker? && current_user.make(@game)))%>
     <div class="dropdown">
@@ -22,9 +27,6 @@
         <li><%= link_to t(".delete"), admin_game_path(@game), method: :delete %></li>
       </ul>
     </div>
-  <% end %>
-  <% unless current_user.nil? %>
-    <%= render "favorite_button" %>
   <% end %>
   <br><br>
   <div class="uk-grid">
