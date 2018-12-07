@@ -9,16 +9,23 @@
       <h3 class="uk-card-title">
         <%= link_to game_path(game), style: "color: #333; font-weight: bolder;" do %>
           <%= game.name %>
-        <% end %>    
+        <% end %>
       </h3>
       <br>
-      <p><%= game.details %></p>
-      <p>genre:
+      <p><%= t (".details") %>: <%= game.details %></p>
+      <p><%= t (".genre") %>:
         <% game.genres.each do |genre| %>
           <%= button_tag genre.genre, class: "search_genre" %>
         <% end %>
       </p>
-      <p>price: $<%= game.price %></p>
+      <p>
+        <%= t (".price") %>:
+        <% if game.price > 0 %>
+          <%= "$" + game.price.to_s %>
+        <% else %>
+          <%= t (".free") %>
+        <% end %>
+      </p>
     </div>
   </div>
 </div>
