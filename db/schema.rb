@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_03_104555) do
+ActiveRecord::Schema.define(version: 2018_12_07_061304) do
 
   create_table "game_genres", force: :cascade do |t|
     t.integer "game_id"
@@ -30,6 +30,8 @@ ActiveRecord::Schema.define(version: 2018_12_03_104555) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
+    t.integer "download_count", default: 0
+    t.float "score", default: 0.0
     t.index ["user_id"], name: "index_games_on_user_id"
   end
 

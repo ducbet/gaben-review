@@ -4,7 +4,7 @@
     <div class="tabs tabs-style-line">
       <nav class="container">
         <ul>
-          <li><a href="#section-line-1"><span>POPULAR</span></a></li>
+          <li><a href="#section-line-1"><span>TOP RATED</span></a></li>
           <li><a href="#section-line-2"><span>NEW ARRIVALS</span></a></li>
           <li><a href="#section-line-3"><span>BEST SELLERS</span></a></li>
           <li><a href="#section-line-4"><span>EDITOR'S PICK</span></a></li>
@@ -23,9 +23,9 @@
                 <%= link_to game do %>
                   <h3><%= game.name %></h3>
                 <% end %>
-                <h4><%= rand(1000..5000) %> Downloads</h4>
+                <h4><%= game.download_count %> Downloads</h4>
                 <div class="wthreeratingaits">
-                  <%= render "shared/star", score: game.count_average_score %>
+                  <%= render "shared/star", score: game.score %>
                 </div>
               </div>
             <% end %>
@@ -43,9 +43,9 @@
                 <%= link_to game do %>
                   <h3><%= game.name %></h3>
                 <% end %>
-                <h4><%= rand(1000..5000) %> Downloads</h4>
+                <h4><%= game.download_count %> Downloads</h4>
                 <div class="wthreeratingaits">
-                  <%= render "shared/star", score: game.count_average_score %>
+                  <%= render "shared/star", score: game.score %>
                 </div>
               </div>
             <% end %>
@@ -63,9 +63,9 @@
                 <%= link_to game do %>
                   <h3><%= game.name %></h3>
                 <% end %>
-                <h4><%= rand(1000..5000) %> Downloads</h4>
+                <h4><%= game.download_count %> Downloads</h4>
                 <div class="wthreeratingaits">
-                  <%= render "shared/star", score: game.count_average_score %>
+                  <%= render "shared/star", score: game.score %>
                 </div>
               </div>
             <% end %>
@@ -83,9 +83,9 @@
                 <%= link_to game do %>
                   <h3><%= game.name %></h3>
                 <% end %>
-                <h4><%= rand(1000..5000) %> Downloads</h4>
+                <h4><%= game.download_count %> Downloads</h4>
                 <div class="wthreeratingaits">
-                  <%= render "shared/star", score: game.count_average_score %>
+                  <%= render "shared/star", score: game.score %>
                 </div>
               </div>
             <% end %>
