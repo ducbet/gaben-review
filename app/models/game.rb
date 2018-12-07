@@ -17,7 +17,7 @@ class Game < ApplicationRecord
   validates :picture, presence: true
 
   scope :top_rated, ->(num) {order(score: :desc).limit(num)}
-  scope :new_arrivals, ->(num) {order(created_at: :asc).limit(num)}
+  scope :new_arrivals, ->(num) {order(created_at: :desc).limit(num)}
   scope :best_sellers, ->(num) {order(download_count: :desc).limit(num)}
 
   def calculate_average_score
