@@ -37,6 +37,7 @@ en:
       profile: "Profile"
       edit: "Edit profile"
       review_history: "Review History"
+      wishlist: "Wish list"
     new:
       signup: "Sign up"
       name: "Name"
