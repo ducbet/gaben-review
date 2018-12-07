@@ -95,7 +95,7 @@
   <div class="uk-card uk-card-default uk-card-body">
     <div class="container">
       <div style="font-size: 1.1em; color: #333; margin-top: 20px;">
-        <h3>Reviews</h3>
+        <h3 id="review_count"><%= t ".reviews" %> (<%= @game.reviews.size %>)</h3>
         <ul class="uk-list uk-list-divider">
           <li>
             <div id="comment_area">
@@ -106,7 +106,8 @@
           </li>
         </ul>
         <ul id="reviews" class="uk-list uk-list-divider">
-          <%= render @reviews %>
+          <%= render "reviews/sorted_review",
+                        my_review: @my_review, other_reviews: @other_reviews %>
         </ul>
       </div>
     </div>

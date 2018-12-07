@@ -121,6 +121,7 @@ vi:
       edit: "Sửa"
       update: "Cập nhật"
       delete: "Xóa"
+      reviews: "Bình luận"
     game:
       details: "Mô tả"
       price: "Giá"

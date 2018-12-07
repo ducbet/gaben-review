@@ -123,6 +123,13 @@ en:
       edit: "Edit"
       update: "Update"
       delete: "Delete"
+      reviews: "Reviews"
+    game:
+      details: "Details"
+      price: "Price"
+      free: "Free"
+      genre: "Genres"
+      avg_score: "Average Score"
 
   genres:
     name: "Name"
