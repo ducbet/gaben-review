@@ -35,6 +35,7 @@ vi:
       profile: "Thông tin cá nhân"
       edit: "Thay đổi thông tin cá nhân"
       review_history: "Lịch sử bình luận"
+      wishlist: "Danh sách mong muốn"
     new:
       signup: "Đăng ký"
       name: "Tên"
