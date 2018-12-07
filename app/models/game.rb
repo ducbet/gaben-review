@@ -16,8 +16,15 @@ class Game < ApplicationRecord
   validates :price, presence: true
   validates :picture, presence: true
 
-  def count_average_score
-    return 0 if reviews.empty?
-    reviews.average(:score).round(2)
+  scope :top_rated, ->(num) {order(score: :desc).limit(num)}
+  scope :new_arrivals, ->(num) {order(created_at: :asc).limit(num)}
+  scope :best_sellers, ->(num) {order(download_count: :desc).limit(num)}
+
+  def calculate_average_score
+    if reviews.empty?
+      update_attributes(score: 0)
+    else
+      update_attributes(score: reviews.average(:score).round(2))
+    end
   end
 end

@@ -49,11 +49,11 @@
         <div
           id="score_ruby_var"
           data-comment_score="0"
-          data-score="<%= @game.count_average_score %>"
+          data-score="<%= @game.score %>"
           data-max_score="<%= Settings.max_score %>">
         </div>
         <div class="wthreeratingaits" id="game_star" style="margin-top: 5px;">
-          <%= render "shared/star", score: @game.count_average_score %>
+          <%= render "shared/star", score: @game.score %>
         </div>
       </h4>
     </div>

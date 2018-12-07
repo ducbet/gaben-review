@@ -30,6 +30,7 @@ end
 game = Game.create! name: "Surviv",
 details: "Nếu các bạn đã chơi những trò chơi sinh tồn kiểu PUBG, Fortnite hay H1Z1, thì bạn đã nắm được một nửa trò chơi rồi! Hãy coi trò surviv.io như là trò PUBG 2D.",
 price: 0,
+download_count: Faker::Number.between(10, 10000),
 picture: Rails.root.join("app/assets/images/surviv.png").open,
 user_id: user3.id
 
@@ -50,6 +51,7 @@ game1 = Game.create! name: "Age of empires",
 details: "Age of empires detail",
 price: Faker::Number.decimal(2, 2),
 user_id: user2.id,
+download_count: Faker::Number.between(10, 10000),
 picture: Rails.root.join("app/assets/images/age-of-empires-1.jpg").open
 
 game1.game_genres.create! genre_id: rand(1..(genres.size))
@@ -66,6 +68,7 @@ game2 = Game.create! name: "Angry bird",
 details: "Angry bird detail",
 price: Faker::Number.decimal(2, 2),
 user_id: user2.id,
+download_count: Faker::Number.between(10, 10000),
 picture: Rails.root.join("app/assets/images/angry-bird-1.jpg").open
 
 game2.game_genres.create! genre_id: rand(1..(genres.size))
@@ -83,6 +86,7 @@ game3 = Game.create! name: "Battlefield",
 details: "Battlefield detail",
 price: Faker::Number.decimal(2, 2),
 user_id: user2.id,
+download_count: Faker::Number.between(10, 10000),
 picture: Rails.root.join("app/assets/images/battlefield-1.jpg").open
 
 game3.game_genres.create! genre_id: rand(1..(genres.size))
@@ -101,6 +105,7 @@ game4 = Game.create! name: "Call of duty",
 details: "Call of duty detail",
 price: Faker::Number.decimal(2, 2),
 user_id: user2.id,
+download_count: Faker::Number.between(10, 10000),
 picture: Rails.root.join("app/assets/images/call-of-duty-1.jpg").open
 
 game4.game_genres.create! genre_id: rand(1..(genres.size))
@@ -119,6 +124,7 @@ game5 = Game.create! name: "Crysis",
 details: "Crysis detail",
 price: Faker::Number.decimal(2, 2),
 user_id: user2.id,
+download_count: Faker::Number.between(10, 10000),
 picture: Rails.root.join("app/assets/images/crysis-1.jpg").open
 
 game5.game_genres.create! genre_id: rand(1..(genres.size))
@@ -137,6 +143,7 @@ game6 = Game.create! name: "Dark siders",
 details: "Dark siders detail",
 price: Faker::Number.decimal(2, 2),
 user_id: user2.id,
+download_count: Faker::Number.between(10, 10000),
 picture: Rails.root.join("app/assets/images/dark-siders-1.jpg").open
 
 game6.game_genres.create! genre_id: rand(1..(genres.size))
@@ -155,6 +162,7 @@ game7 = Game.create! name: "Dead space",
 details: "Dead space detail",
 price: Faker::Number.decimal(2, 2),
 user_id: user2.id,
+download_count: Faker::Number.between(10, 10000),
 picture: Rails.root.join("app/assets/images/dead-space-1.jpg").open
 
 game7.game_genres.create! genre_id: rand(1..(genres.size))
@@ -174,6 +182,7 @@ game8 = Game.create! name: "Destiny",
 details: "Destiny detail",
 price: Faker::Number.decimal(2, 2),
 user_id: user2.id,
+download_count: Faker::Number.between(10, 10000),
 picture: Rails.root.join("app/assets/images/destiny-1.jpg").open
 
 game8.game_genres.create! genre_id: rand(1..(genres.size))
@@ -193,6 +202,7 @@ game9 = Game.create! name: "Devil may cry",
 details: "Devil may cry detail",
 price: Faker::Number.decimal(2, 2),
 user_id: user2.id,
+download_count: Faker::Number.between(10, 10000),
 picture: Rails.root.join("app/assets/images/devil-may-cry-1.jpg").open
 
 game9.game_genres.create! genre_id: rand(1..(genres.size))
@@ -211,6 +221,7 @@ game9.screenshots.create! picture: Rails.root.join("app/assets/images/devil-may-
 # details: "Devil may cry detail",
 # price: Faker::Number.decimal(2, 2),
 # user_id: user2.id,
+# download_count: Faker::Number.between(10, 10000),
 # picture: Rails.root.join("app/assets/images/devil-may-cry-1.jpg").open
 
 # game10.game_genres.create! genre_id: rand(1..(genres.size))
@@ -229,6 +240,7 @@ game11 = Game.create! name: "Dota 2",
 details: "Dota 2 detail",
 price: Faker::Number.decimal(2, 2),
 user_id: user2.id,
+download_count: Faker::Number.between(10, 10000),
 picture: Rails.root.join("app/assets/images/dota2-1.jpg").open
 
 game11.game_genres.create! genre_id: rand(1..(genres.size))
@@ -247,6 +259,7 @@ game12 = Game.create! name: "Fallout",
 details: "Fallout detail",
 price: Faker::Number.decimal(2, 2),
 user_id: user2.id,
+download_count: Faker::Number.between(10, 10000),
 picture: Rails.root.join("app/assets/images/fallout-1.jpg").open
 
 game12.game_genres.create! genre_id: rand(1..(genres.size))
@@ -266,6 +279,7 @@ game13 = Game.create! name: "Farcry",
 details: "Farcry detail",
 price: Faker::Number.decimal(2, 2),
 user_id: user2.id,
+download_count: Faker::Number.between(10, 10000),
 picture: Rails.root.join("app/assets/images/farcry-1.jpg").open
 
 game13.game_genres.create! genre_id: rand(1..(genres.size))
@@ -284,6 +298,7 @@ game14 = Game.create! name: "Final fantasy",
 details: "Final fantasy",
 price: Faker::Number.decimal(2, 2),
 user_id: user2.id,
+download_count: Faker::Number.between(10, 10000),
 picture: Rails.root.join("app/assets/images/final-fantasy-1.jpg").open
 
 game14.game_genres.create! genre_id: rand(1..(genres.size))
@@ -302,6 +317,7 @@ game15 = Game.create! name: "Forza",
 details: "Forza",
 price: Faker::Number.decimal(2, 2),
 user_id: user2.id,
+download_count: Faker::Number.between(10, 10000),
 picture: Rails.root.join("app/assets/images/forza-1.jpg").open
 
 game15.game_genres.create! genre_id: rand(1..(genres.size))
@@ -320,6 +336,7 @@ game16 = Game.create! name: "Gear of war",
 details: "Gear of war",
 price: Faker::Number.decimal(2, 2),
 user_id: user2.id,
+download_count: Faker::Number.between(10, 10000),
 picture: Rails.root.join("app/assets/images/gear-of-war-1.jpg").open
 
 game16.game_genres.create! genre_id: rand(1..(genres.size))
@@ -338,6 +355,7 @@ game17 = Game.create! name: "God of war",
 details: "God of war",
 price: Faker::Number.decimal(2, 2),
 user_id: user2.id,
+download_count: Faker::Number.between(10, 10000),
 picture: Rails.root.join("app/assets/images/god-of-war-1.jpg").open
 
 game17.game_genres.create! genre_id: rand(1..(genres.size))
@@ -356,6 +374,7 @@ game18 = Game.create! name: "Gran turismo",
 details: "Gran turismo",
 price: Faker::Number.decimal(2, 2),
 user_id: user2.id,
+download_count: Faker::Number.between(10, 10000),
 picture: Rails.root.join("app/assets/images/gran-turismo-1.jpg").open
 
 game18.game_genres.create! genre_id: rand(1..(genres.size))
@@ -374,6 +393,7 @@ game19 = Game.create! name: "GtaV",
 details: "GtaV",
 price: Faker::Number.decimal(2, 2),
 user_id: user2.id,
+download_count: Faker::Number.between(10, 10000),
 picture: Rails.root.join("app/assets/images/gtav-1.jpg").open
 
 game19.game_genres.create! genre_id: rand(1..(genres.size))
@@ -392,6 +412,7 @@ game20 = Game.create! name: "Guild war",
 details: "Guild war",
 price: Faker::Number.decimal(2, 2),
 user_id: user2.id,
+download_count: Faker::Number.between(10, 10000),
 picture: Rails.root.join("app/assets/images/guild-wars-1.jpg").open
 
 game20.game_genres.create! genre_id: rand(1..(genres.size))
@@ -411,6 +432,7 @@ game21 = Game.create! name: "Hitman",
 details: "Hitman",
 price: Faker::Number.decimal(2, 2),
 user_id: user2.id,
+download_count: Faker::Number.between(10, 10000),
 picture: Rails.root.join("app/assets/images/hitman-1.jpg").open
 
 game21.game_genres.create! genre_id: rand(1..(genres.size))
@@ -427,6 +449,7 @@ game22 = Game.create! name: "Killzone",
 details: "Killzone",
 price: Faker::Number.decimal(2, 2),
 user_id: user2.id,
+download_count: Faker::Number.between(10, 10000),
 picture: Rails.root.join("app/assets/images/killzone-1.jpg").open
 
 game22.game_genres.create! genre_id: rand(1..(genres.size))
@@ -445,6 +468,7 @@ game23 = Game.create! name: "Left 4 Dead",
 details: "Left 4 Dead",
 price: Faker::Number.decimal(2, 2),
 user_id: user2.id,
+download_count: Faker::Number.between(10, 10000),
 picture: Rails.root.join("app/assets/images/left-4-dead-1.jpg").open
 
 game23.game_genres.create! genre_id: rand(1..(genres.size))
@@ -462,6 +486,7 @@ game24 = Game.create! name: "Machinarium",
 details: "Machinarium",
 price: Faker::Number.decimal(2, 2),
 user_id: user2.id,
+download_count: Faker::Number.between(10, 10000),
 picture: Rails.root.join("app/assets/images/machinarium-1.jpg").open
 
 game24.game_genres.create! genre_id: rand(1..(genres.size))
@@ -480,6 +505,7 @@ game25 = Game.create! name: "Mario",
 details: "Mario",
 price: Faker::Number.decimal(2, 2),
 user_id: user2.id,
+download_count: Faker::Number.between(10, 10000),
 picture: Rails.root.join("app/assets/images/mario-1.jpg").open
 
 game25.game_genres.create! genre_id: rand(1..(genres.size))
@@ -496,6 +522,7 @@ game26 = Game.create! name: "Mass effect",
 details: "Mass effect",
 price: Faker::Number.decimal(2, 2),
 user_id: user2.id,
+download_count: Faker::Number.between(10, 10000),
 picture: Rails.root.join("app/assets/images/mass-effect-1.jpg").open
 
 game26.game_genres.create! genre_id: rand(1..(genres.size))
@@ -514,6 +541,7 @@ game27 = Game.create! name: "Medal of honor",
 details: "Medal of honor",
 price: Faker::Number.decimal(2, 2),
 user_id: user2.id,
+download_count: Faker::Number.between(10, 10000),
 picture: Rails.root.join("app/assets/images/medal-of-honor-1.jpg").open
 
 game27.game_genres.create! genre_id: rand(1..(genres.size))
@@ -532,6 +560,7 @@ game28 = Game.create! name: "Metal gear",
 details: "Metal gear",
 price: Faker::Number.decimal(2, 2),
 user_id: user2.id,
+download_count: Faker::Number.between(10, 10000),
 picture: Rails.root.join("app/assets/images/metal-gear-1.jpg").open
 
 game28.game_genres.create! genre_id: rand(1..(genres.size))
@@ -550,6 +579,7 @@ game29 = Game.create! name: "Minecraft",
 details: "Minecraft",
 price: Faker::Number.decimal(2, 2),
 user_id: user2.id,
+download_count: Faker::Number.between(10, 10000),
 picture: Rails.root.join("app/assets/images/minecraft-1.jpg").open
 
 game29.game_genres.create! genre_id: rand(1..(genres.size))
@@ -566,6 +596,7 @@ game30 = Game.create! name: "Mortal kombat",
 details: "Mortal kombat",
 price: Faker::Number.decimal(2, 2),
 user_id: user2.id,
+download_count: Faker::Number.between(10, 10000),
 picture: Rails.root.join("app/assets/images/mortal-kombat-1.jpg").open
 
 game30.game_genres.create! genre_id: rand(1..(genres.size))
@@ -583,6 +614,7 @@ game31 = Game.create! name: "Need for speed",
 details: "Need for speed",
 price: Faker::Number.decimal(2, 2),
 user_id: user2.id,
+download_count: Faker::Number.between(10, 10000),
 picture: Rails.root.join("app/assets/images/need-for-speed-1.jpg").open
 
 game31.game_genres.create! genre_id: rand(1..(genres.size))
@@ -600,6 +632,7 @@ game32 = Game.create! name: "Prince of Persia",
 details: "Prince of Persia",
 price: Faker::Number.decimal(2, 2),
 user_id: user2.id,
+download_count: Faker::Number.between(10, 10000),
 picture: Rails.root.join("app/assets/images/prince-of-persia-1.jpg").open
 
 game32.game_genres.create! genre_id: rand(1..(genres.size))
@@ -617,6 +650,7 @@ game33 = Game.create! name: "Prototype",
 details: "Prototype",
 price: Faker::Number.decimal(2, 2),
 user_id: user2.id,
+download_count: Faker::Number.between(10, 10000),
 picture: Rails.root.join("app/assets/images/prototype-1.jpg").open
 
 game33.game_genres.create! genre_id: rand(1..(genres.size))
@@ -633,6 +667,7 @@ game34 = Game.create! name: "Resident Evil",
 details: "Resident Evil",
 price: Faker::Number.decimal(2, 2),
 user_id: user2.id,
+download_count: Faker::Number.between(10, 10000),
 picture: Rails.root.join("app/assets/images/resident-evil-1.jpg").open
 
 game34.game_genres.create! genre_id: rand(1..(genres.size))
@@ -650,6 +685,7 @@ game35 = Game.create! name: "The Witcher",
 details: "The Witcher",
 price: Faker::Number.decimal(2, 2),
 user_id: user2.id,
+download_count: Faker::Number.between(10, 10000),
 picture: Rails.root.join("app/assets/images/the-witcher-1.jpg").open
 
 game35.game_genres.create! genre_id: rand(1..(genres.size))
@@ -666,6 +702,7 @@ game36 = Game.create! name: "Tom Rider",
 details: "Tom Rider",
 price: Faker::Number.decimal(2, 2),
 user_id: user2.id,
+download_count: Faker::Number.between(10, 10000),
 picture: Rails.root.join("app/assets/images/tom-rider-1.jpg").open
 
 game36.game_genres.create! genre_id: rand(1..(genres.size))
