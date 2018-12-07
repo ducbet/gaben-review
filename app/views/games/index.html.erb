@@ -81,8 +81,6 @@ $( function() {
   $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
     " - $" + $( "#slider-range" ).slider( "values", 1 ) );
 
-  min_price_field.val(0);
-  max_price_field.val(200);
   $('#slider-range').slider({
     slide: function(event, ui) {
       min_price_field.val(ui.values[0]);
