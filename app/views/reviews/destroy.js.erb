@@ -1,3 +1,4 @@
 $("#comment_area").html("<%= j render("reviews/comment", game_id: @game.id) %>");
 $("#reviews").html("<%= j render(@reviews) %>");
 $("#game_star").html("<%= j render("shared/star", score: @game.score) %>");
+$("#review_count").html("<%= I18n.t("games.show.reviews")%> (<%= @game.reviews.size %>)");
