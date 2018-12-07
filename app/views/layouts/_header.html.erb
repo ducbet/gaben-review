@@ -17,6 +17,19 @@
         <!-- //Logo -->
       </div>
 
+      <% unless(controller_name.eql?("games") && action_name.eql?("index")) %>
+        <!-- search bar -->
+        <%= search_form_for @q, id: "search_form" do |f| %>
+          <%= f.hidden_field :genres_genre_cont, id: "search_genres" %>
+          <div class="uk-inline">
+            <span class="uk-form-icon" uk-icon="icon: search"></span>
+            <%= f.search_field :name_or_details_cont,
+              class: "uk-input uk-form-width-medium", style: "min-width: 550px",
+              placeholder: "Search name or detail" %>
+          </div>
+        <% end %>
+      <% end %>
+
       <div id="navbar" class="navbar-collapse navbar-right collapse">
         <ul class="nav navbar-nav navbar-right cross-effect" id="cross-effect">
           <% if controller_name.eql? "static_pages" %>
@@ -44,12 +57,8 @@
               </li>
             <% else %>
               <li><%= link_to t(".games"), games_path %></li>
-              <li><%= link_to t(".platforms"), "#agileinfoplatforms", {class: "scroll"} %></li>
-              <li><%= link_to t(".collection"), "#wthreetabsaits", {class: "scroll"} %></li>
-              <li><%= link_to t(".portfolio"), "#w3portfolioaits", {class: "scroll"} %></li>
               <li><%= link_to t(".about"), "#w3lsaboutaits", {class: "scroll"} %></li>
               <li><%= link_to t(".news"), "#wthreeblogsaits", {class: "scroll"} %></li>
-              <li><%= link_to t(".contact"), "#agilecontactw3ls", {class: "scroll"} %></li>
             <% end %>
           <% else %>
             <% if !current_user.nil? && current_user.admin? %>

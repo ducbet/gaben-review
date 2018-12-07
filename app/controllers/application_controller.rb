@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
   before_action :set_raven_context
   before_action :set_locale
+  before_action :declare_ransack
 
   private
 
@@ -24,5 +25,9 @@ class ApplicationController < ActionController::Base
     return if @user
     flash[:danger] = t "flash.no_user"
     redirect_to root_url
+  end
+
+  def declare_ransack
+    @q = Game.ransack(params[:q])
   end
 end
