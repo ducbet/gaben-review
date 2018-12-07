@@ -32,7 +32,12 @@
   <div class="uk-grid">
     <div class="uk-width-1-3@m">
       <h4 style="color: #fff; text-align: left;">
-        <%= t (".price") %>: $<%= @game.price %>
+        <%= t (".price") %>:
+        <% if @game.price > 0 %>
+          <%= "$" + @game.price.to_s %>
+        <% else %>
+          <%= t (".free") %>
+        <% end %>
       </h4>
       <br>
       <h4 style="color: #fff; text-align: left;">

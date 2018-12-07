@@ -104,7 +104,7 @@ vi:
 
   games:
     name: "Tên"
-    details: "Mô tả"
+
     price: "Giá"
     add_game: "Thêm trò chơi"
     update_game: "Cập nhật trò chơi"
@@ -113,13 +113,20 @@ vi:
     edit:
       update: "Cập nhật"
     show:
-      info: "Thông tin game"
+      info: "Giới thiệu"
       price: "Giá"
+      free: "Miễn phí"
       genre: "Thể loại"
       avg_score: "Điểm trung bình"
       edit: "Sửa"
       update: "Cập nhật"
       delete: "Xóa"
+    game:
+      details: "Mô tả"
+      price: "Giá"
+      free: "Miễn phí"
+      genre: "Thể loại"
+      avg_score: "Điểm trung bình"
 
   genres:
     name: "Tên"

@@ -25,12 +25,7 @@
         </li>
       </ul>
     </div>
-    <div>
-      <ul class="uk-subnav uk-subnav-pill" uk-margin>
-        <li><%= sort_link(@q, :name) %></li>
-        <li><%= sort_link(@q, :price) %></li>
-      </ul>
-    </div>
+
     <div>
       <ul class="uk-subnav uk-subnav-pill" uk-margin>
         <% @genres.each do |genre| %>
@@ -38,6 +33,13 @@
             <%= button_tag genre, class: "search_genre", style: "color: #999; text-decoration: none;" %>
           </a></li>
         <% end %>
+      </ul>
+    </div>
+
+    <div>
+      <ul class="uk-subnav uk-subnav-pill" uk-margin>
+        <li><%= sort_link(@q, :name) %></li>
+        <li><%= sort_link(@q, :price) %></li>
       </ul>
     </div>
   </div>

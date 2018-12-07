@@ -117,6 +117,7 @@ en:
     show:
       info: "Information"
       price: "Price"
+      free: "Free"
       genre: "Genre"
       avg_score: "Average Score"
       edit: "Edit"
