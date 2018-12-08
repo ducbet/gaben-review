@@ -13,6 +13,7 @@
       </h3>
       <br>
       <p><%= t (".details") %>: <%= game.details %></p>
+      <p><%= t (".score") %>: <%= game.score %></p>
       <p><%= t (".genre") %>:
         <% game.genres.each do |genre| %>
           <%= button_tag genre.genre, class: "search_genre" %>
@@ -26,6 +27,7 @@
           <%= t (".free") %>
         <% end %>
       </p>
+      <p><%= t (".download") %>: <%= game.download_count %></p>
     </div>
   </div>
 </div>
