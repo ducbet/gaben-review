@@ -12,7 +12,7 @@
         <% end %>
       </h3>
       <br>
-      <p><%= t (".details") %>: <%= game.details %></p>
+      <div id="game_detail"><%= t (".details") %>: <%= game.details %></div>
       <p><%= t (".score") %>: <%= game.score %></p>
       <p><%= t (".genre") %>:
         <% game.genres.each do |genre| %>
