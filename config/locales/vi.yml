@@ -127,6 +127,8 @@ vi:
       price: "Giá"
       free: "Miễn phí"
       genre: "Thể loại"
+      score: "Điểm"
+      download: "Lượt tải"
       avg_score: "Điểm trung bình"
 
   genres:
