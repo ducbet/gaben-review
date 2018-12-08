@@ -75,3 +75,9 @@ body {
 .form_label {
   color: white;
 }
+
+#game_detail {
+  height: 3.6em;
+  line-height: 1.2em;
+  overflow: hidden;
+}
