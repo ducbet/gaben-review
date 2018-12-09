@@ -6,8 +6,13 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.find_by id: params[:id]
-    @my_review = @game.reviews.find_by user_id: current_user.id
-    @other_reviews = @game.reviews.all_except current_user
+    if current_user.nil?
+      @my_review = nil
+      @other_reviews = @game.reviews
+    else
+      @my_review = @game.reviews.find_by user_id: current_user.id
+      @other_reviews = @game.reviews.all_except current_user
+    end
     @comment = unless current_user.nil?
                   @my_review || Review.new
                else
