@@ -1,24 +1,16 @@
-# README
+# GABEN REVIEW
+> This is a game review web application using Ruby on Rails
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Demo
+https://gaben-review-94766.herokuapp.com/en
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Features
+- Register, login, logout
+- Search games by name, detail, price or genre
+- Sort games by name, price, score or download count 
+- Comment, reply comment
+- Add games to favorite
+- Multiple languages support
+- Admin can add, edit games
+- Admin can upgrade the user to maker
+- Maker can add, edit their own game 
