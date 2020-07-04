@@ -4,12 +4,15 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.7.1'
 
 gem "bcrypt"
+gem "bootstrap-sass"
 gem "carrierwave"
 gem "config"
 gem "faker"
+gem "jquery-rails"
 gem "kaminari"
 gem "mini_magick"
 gem "ransack"
+gem 'rails-i18n', '~> 6.0.0' # For 6.0.0 or higher
 gem 'will_paginate', '~> 3.1.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
