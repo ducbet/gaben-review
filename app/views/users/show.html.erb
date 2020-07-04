@@ -1,0 +1,68 @@
+<div class="container" style="color: white; padding-top: 100px; padding-bottom: 100px;" >
+  <div class="row">
+    <div class="col-sm-10"><h1><%= t ".profile"%></h1></div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3"><!--left col-->
+      <div class="text-center">
+        <% if (@user.picture && @user.picture.url) %>
+          <%= image_tag(@user.picture.url, alt: "avatar") %>
+        <% else %>
+          <%= image_tag("/uploads/user/picture/default_avatar.jpg", alt: "avatar") %>
+        <% end %>
+        <%if logged_in? %>
+          <br><br>
+          <h5>Upload a different photo...</h5>
+          <br>
+          <%= form_for @user, html: {id: "upload_avatar_form"} do |f| %>
+            <%= f.file_field :picture, id: "upload_avatar" %>
+          <% end %>
+        <% end %>
+
+      </div></hr><br>
+
+      <div class="panel panel-default">
+        <%if logged_in? %>
+          <div class="panel-heading"><i class="fa fa-link fa-1x"></i> <%= link_to t(".edit"), edit_user_path(current_user) %> </div>
+        <% end %>
+        <div class="panel-heading"><i class="fa fa-heart fa-1x"></i> <%= link_to t(".wishlist"), wishlists_path %> </div>
+      </div>
+    </div><!--/col-3-->
+    <div class="col-sm-9">
+      <div class="tab-content">
+        <div class="tab-pane active" id="home">
+          <hr>
+          <div class="col-xs-6">
+            <label for="first_name"><h4><%= t "users.name"%>: </h4></label>
+            <label><h4><%= @user.nick_name%></h4></label>
+          </div>
+          <div class="col-xs-6">
+            <label for="first_name"><h4><%= t "users.role"%>: </h4></label>
+            <label><h4><%= @user.user_type%></h4></label>
+          </div>
+          <div class="col-xs-6">
+            <label for="email"><h4><%= t "users.email"%>: </h4></label>
+            <label><h4><%= @user.email%></h4></label>
+          </div>
+        </div>
+      </div><!--/tab-content-->
+      <br><br><br><br>
+      <h1><%= t ".review_history" %></h1>
+      <br>
+      <%= will_paginate @reviews %>
+      <br>
+      <ul class="uk-list uk-list-divider">
+        <% @reviews.each do |review| %>
+          <%= render "review_history", review: review %>
+        <% end %>
+      </ul>
+      <%= will_paginate @reviews %>
+    </div><!--/col-9-->
+  </div>
+</div><!--/row-->
+
+<script type="text/javascript">
+  $("#upload_avatar").on('change', function() {
+    $("#upload_avatar_form").submit();
+  });
+</script>

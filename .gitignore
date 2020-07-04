@@ -29,3 +29,12 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+config/settings.local.yml
+config/settings/*.local.yml
+config/environments/*.local.yml
+
+public/uploads/game/picture/*
+public/uploads/screenshot/picture/*
+public/uploads/user/picture/*
+public/uploads/tmp/*

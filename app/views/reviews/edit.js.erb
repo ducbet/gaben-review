@@ -1,0 +1,2 @@
+$("#comment_area").html("<%= j render("reviews/comment", game_id: @game.id) %>");
+$("#reviews").html("<%= j render('reviews/sorted_review', my_review: @my_review, other_reviews: @other_reviews) %>");

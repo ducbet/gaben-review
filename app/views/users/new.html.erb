@@ -1,0 +1,13 @@
+<% provide :title, t(".signup") %>
+<% provide :button_text, t(".signup-btn") %>
+<% provide :url, signup_path %>
+
+<div class="uk-card uk-card-body" style="color: #fff;">
+  <div class="uk-card-title">
+    <div><%= t ".signup" %></div>
+  </div>
+  <div class="uk-card-body">
+    <%= render "form" %>
+  </div>
+  <p><%= t ".have_acc" %> <%= link_to t(".login"), login_path %></p>
+</div>

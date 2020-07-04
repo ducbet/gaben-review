@@ -1,0 +1,12 @@
+<% provide :title, t("games.update_game") %>
+<% provide :button_text, t("games.edit.update") %>
+<% provide :url, admin_game_path(@game) %>
+
+<div class="uk-card uk-card-body" style="color: #fff;">
+  <div class="uk-card-title">
+    <h1><%= t "games.add_game" %></h1>
+  </div>
+  <div class="uk-card-body">
+    <%= render "update_form" %>
+  </div>
+</div>

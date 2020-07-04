@@ -1,0 +1,69 @@
+<%= form_for @game, url: yield(:url), class: "uk-form-stacked" do |f| %>
+  <div class="uk-margin">
+    <div class="uk-form-controls">
+      <%= render "shared/error_messages", object: @game %>
+    </div>
+  </div>
+
+  <div class="uk-margin">
+    <%= f.label :name, t("games.name") %>
+    <div class="uk-form-controls">
+      <div class="uk-inline">
+        <span class="uk-form-icon" uk-icon="icon: nut"></span>
+        <%= f.text_field :name, class: "uk-input uk-form-width-large" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
+    <label style="display: block; width: 100%; margin-bottom: 5px;">Genre</label>
+    <% @genres.each do |genre| %>
+      <label>
+        <%= check_box :genre, genre, class: "uk-checkbox", style: "margin: -2px 0 0;" %>
+        <%= genre %>
+      </label>
+    <% end %>
+  </div>
+
+  <div class="uk-margin">
+    <%= f.label :details, t("games.details") %>
+    <div class="uk-form-controls">
+      <%= f.text_area :details, class: "uk-textarea uk-form-width-large", rows: 5 %>
+    </div>
+  </div>
+
+  <div class="uk-margin">
+    <%= f.label :price, t("games.price") %>
+    <div class="uk-form-controls">
+      <div class="uk-inline">
+        <span class="uk-form-icon" uk-icon="icon: cart"></span>
+        <%= f.number_field :price, class: "uk-input uk-form-width-large" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="uk-margin">
+    <%= f.label :trailer, t("games.trailers") %>
+    <%= f.fields_for :trailer do |p| %>
+      <div class="uk-form-controls">
+        <%= p.text_area :trailer, placeholder: "Youtube link, separated by line breaks", class: "uk-textarea uk-form-width-large", rows: 2 %>
+      </div>
+    <% end %>
+  </div>
+
+  <span class="picture">
+    <label>Cover</label>
+    <%= f.file_field :picture %>
+  </span>
+  <br>
+  <%= f.fields_for :screenshot do |p| %>
+    <div class="field">
+      <%= p.label :screenshot %><br>
+      <%= p.file_field :screenshot, multiple: true, name: "screenshots[picture][]" %>
+    </div>
+  <% end %>
+
+  <div class="uk-margin">
+    <%= f.submit yield(:button_text), class: "uk-button uk-button-primary", style: "font-size:1em" %>
+  </div>
+<% end %>

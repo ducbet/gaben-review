@@ -1,0 +1,12 @@
+<div class="container uk-margin">
+  <h1 style="color: white"><%= t "users.show.wishlist" %></h1>
+  <div class="apple_pagination" style="background-color: transparent; border: none;">
+    <%= will_paginate @games %>
+  </div>
+  <div class="uk-grid-match" uk-grid>
+    <%= render @games %>
+  </div>
+  <div class="apple_pagination" style="background-color: transparent; border: none;">
+    <%= will_paginate @games %>
+  </div>
+</div>

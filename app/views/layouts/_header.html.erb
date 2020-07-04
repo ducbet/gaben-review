@@ -1,0 +1,118 @@
+<div class="agileheader" id="agileitshome">
+  <!-- Navigation -->
+  <div class="w3lsnavigation" style="position: inherit;">
+    <nav class="navbar navbar-inverse agilehover-effect wthreeeffect navbar-default">
+
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <!-- Logo -->
+        <div class="logo">
+          <%= link_to t("web_name"), root_path, class: "navbar-brand logo-w3l button" %>
+        </div>
+        <!-- //Logo -->
+      </div>
+
+      <% unless(controller_name.eql?("games") && action_name.eql?("index")) %>
+        <!-- search bar -->
+        <%= search_form_for @q, id: "search_form" do |f| %>
+          <%= f.hidden_field :genres_genre_cont, id: "search_genres" %>
+          <div class="uk-inline">
+            <span class="uk-form-icon" uk-icon="icon: search"></span>
+            <%= f.search_field :name_or_details_cont,
+              class: "uk-input uk-form-width-medium", style: "min-width: 550px",
+              placeholder: "Search name or detail" %>
+          </div>
+        <% end %>
+      <% end %>
+
+      <div id="navbar" class="navbar-collapse navbar-right collapse">
+        <ul class="nav navbar-nav navbar-right cross-effect" id="cross-effect">
+          <% if controller_name.eql? "static_pages" %>
+            <% if !current_user.nil? && current_user.admin? %>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <%= t ".games" %> <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><%= link_to t(".all_games"), games_path %></li>
+                  <li><%= link_to t(".add_game"), new_admin_game_path %></li>
+                  <li><%= link_to t(".add_genre"), new_admin_genre_path %></li>
+                </ul>
+              </li>
+              <li><%= link_to t(".users"), admin_users_path %></li>
+            <% elsif !current_user.nil? && current_user.maker? %>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <%= t ".games" %> <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><%= link_to t(".all_games"), games_path %></li>
+                  <li><%= link_to t(".add_game"), new_admin_game_path %></li>
+                </ul>
+              </li>
+            <% else %>
+              <li><%= link_to t(".games"), games_path %></li>
+              <li><%= link_to t(".about"), "#w3lsaboutaits", {class: "scroll"} %></li>
+              <li><%= link_to t(".news"), "#wthreeblogsaits", {class: "scroll"} %></li>
+            <% end %>
+          <% else %>
+            <% if !current_user.nil? && current_user.admin? %>
+               <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <%= t ".games" %> <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><%= link_to t(".all_games"), games_path %></li>
+                  <li><%= link_to t(".add_game"), new_admin_game_path %></li>
+                  <li><%= link_to t(".add_genre"), new_admin_genre_path %></li>
+                </ul>
+              </li>
+              <li><%= link_to t(".users"), admin_users_path %></li>
+            <% elsif !current_user.nil? && current_user.maker? %>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <%= t ".games" %> <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><%= link_to t(".all_games"), games_path %></li>
+                  <li><%= link_to t(".add_game"), new_admin_game_path %></li>
+                </ul>
+              </li>
+            <% else %>
+              <li><%= link_to t(".games"), games_path %></li>
+              <li><%= link_to t(".about"), "#{root_path}#w3lsaboutaits", {class: "scroll"} %></li>
+              <li><%= link_to t(".news"), "#{root_path}#wthreeblogsaits", {class: "scroll"} %></li>
+              <li><%= link_to t(".contact"), "#{root_path}#agilecontactw3ls", {class: "scroll"} %></li>
+            <% end %>
+          <% end %>
+
+          <% if logged_in? %>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <%= t ".account" %> <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li><%= link_to t(".profile"), current_user %></li>
+                <li>
+                  <%= link_to t(".settings"), edit_user_path(current_user) %>
+                </li>
+                <li class="divider"></li>
+                <li>
+                  <%= link_to t("logout"), logout_path, {method: :delete} %>
+                </li>
+              </ul>
+            </li>
+          <% else %>
+            <li><%= link_to t(".signup"), signup_path %></li>
+            <li><%= link_to t(".login"), login_path %></li>
+          <% end %>
+        </ul>
+      </div><!-- //Navbar-Collapse -->
+    </nav>
+  </div>
+</div>

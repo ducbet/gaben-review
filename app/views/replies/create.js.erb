@@ -1,0 +1,4 @@
+$("<%= j render(@reply) %>").insertBefore("#reply_form_" + <%= @reply.review.id %> + "_");
+$("#reply_" + <%= @reply.review.id %> +"_text_field").val("");
+$("#reply_" + <%= @reply.review.id %> +"_text_field").attr("placeholder", "");
+

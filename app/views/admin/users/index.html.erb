@@ -1,0 +1,20 @@
+<% provide :title, t("users.index.users") %>
+<div class="container">
+  <div class="uk-card uk-card-default uk-card-body">
+    <h3 class="uk-card-title">
+      <strong><%= t "users.index.users" %></strong>
+    </h3>
+    <table class="uk-table uk-table-divider">
+      <thead>
+        <tr>
+          <th style="font-size: 1em;">User</th>
+          <th style="font-size: 1em;">Email</th>
+          <th style="font-size: 1em;">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render @users %>
+      </tbody>
+    </table>
+  </div>
+</div>

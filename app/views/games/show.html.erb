@@ -1,0 +1,128 @@
+<% provide :title, @game.name %>
+
+<div
+  class="uk-height-large uk-background-cover uk-light uk-flex"
+  style="background-image: url('<%= @game.picture.url %>');"
+  uk-parallax="bgy: -200"
+>
+  <h1 class="uk-width-1-2@m uk-text-center uk-margin-auto uk-margin-auto-vertical">
+  </h1>
+</div>
+<div class="container" id="content">
+  <br><br>
+  <h2 style="color: #fff">
+    <%= @game.name %>
+    <% unless current_user.nil? %>
+      <%= render "favorite_button" %>
+    <% end %>
+  </h2>
+  <% if !current_user.nil? && (current_user.admin? ||
+    (current_user.maker? && current_user.make(@game)))%>
+    <div class="dropdown">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+        <%= t ".edit" %> <b class="caret"></b>
+      </a>
+      <ul class="dropdown-menu">
+        <li><%= link_to t(".update"), edit_admin_game_path %></li>
+        <li><%= link_to t(".delete"), admin_game_path(@game), method: :delete %></li>
+      </ul>
+    </div>
+  <% end %>
+  <br><br>
+  <div class="uk-grid">
+    <div class="uk-width-1-3@m">
+      <h4 style="color: #fff; text-align: left;">
+        <%= t (".info") %>: <%= @game.details %>
+      </h4>
+      <br>
+      <h4 style="color: #fff; text-align: left;">
+        <%= t (".price") %>:
+        <% if @game.price > 0 %>
+          <%= "$" + @game.price.to_s %>
+        <% else %>
+          <%= t (".free") %>
+        <% end %>
+      </h4>
+      <br>
+      <h4 style="color: #fff; text-align: left;">
+        <%= t (".genre") %>:
+        <span style="color: #fff; text-align: left;">
+          <% @game.genres.each do |genre| %>
+            <%= genre.genre %>
+          <% end %>
+        </span>
+      </h4>
+      <br>
+      <h4 style="color: #fff; text-align: left;">
+        <%= t (".avg_score") %>:
+        <div
+          id="score_ruby_var"
+          data-comment_score="0"
+          data-score="<%= @game.score %>"
+          data-max_score="<%= Settings.max_score %>">
+        </div>
+        <div class="wthreeratingaits" id="game_star" style="margin-top: 5px;">
+          <%= render "shared/star", score: @game.score %>
+        </div>
+      </h4>
+    </div>
+    <div class="uk-width-expand@m">
+      <div uk-slider>
+        <div class="uk-position-relative uk-visible-toggle uk-light">
+          <ul class="uk-slider-items uk-child-width-1-2 uk-child-width-1-3@s uk-child-width-1-4@m">
+            <% @game.screenshots.each.with_index(1) do |screenshot, index| %>
+              <li>
+                <div uk-lightbox>
+                  <%= link_to screenshot.picture.url, class: "game_image-container" do %>
+                    <%= image_tag screenshot.picture.url, alt: "Game Robo" %>
+                  <% end %>
+                </div>
+              </li>
+            <% end %>
+          </ul>
+          <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+          <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
+        </div>
+        <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% @game.trailers.each do |trailer| %>
+  <%= youtube_embed trailer.youtube_link %>
+<% end %>
+
+<div>
+  <br>
+  <br>
+  <div class="uk-card uk-card-default uk-card-body">
+    <div class="container">
+      <div style="font-size: 1.1em; color: #333; margin-top: 20px;">
+        <h3 id="review_count"><%= t ".reviews" %> (<%= @game.reviews.size %>)</h3>
+        <ul class="uk-list uk-list-divider">
+          <li>
+            <div id="comment_area">
+              <% if logged_in? && !had_comment_in(@game) %>
+                <%= render "reviews/comment", game_id: @game.id %>
+              <% end %>
+            </div>
+          </li>
+        </ul>
+        <ul id="reviews" class="uk-list uk-list-divider">
+          <%= render "reviews/sorted_review",
+                        my_review: @my_review, other_reviews: @other_reviews %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Popup-Box-JavaScript -->
+<script src="/assets/jquery.chocolat.js"></script>
+<script type="text/javascript">
+  $(function() {
+    $('.w3portfolioaits-item a').Chocolat();
+  });
+</script>
+<!-- //Popup-Box-JavaScript -->

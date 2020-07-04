@@ -1,0 +1,97 @@
+<div class="wthreetabsaits" id="wthreetabsaits">
+  <section>
+    <h3><%= t "layouts.header.collection" %></h3>
+    <div class="tabs tabs-style-line">
+      <nav class="container">
+        <ul>
+          <li><a href="#section-line-1"><span>TOP RATED</span></a></li>
+          <li><a href="#section-line-2"><span>NEW ARRIVALS</span></a></li>
+          <li><a href="#section-line-3"><span>BEST SELLERS</span></a></li>
+          <li><a href="#section-line-4"><span>EDITOR'S PICK</span></a></li>
+        </ul>
+      </nav>
+      <div class="content-wrap">
+        <section id="section-line-1">
+          <div id="owl-demo" class="owl-carousel text-center">
+            <% support.game_popular.each do |game| %>
+              <div class="item">
+                <%= link_to game do %>
+                  <div class="agileinfoitem-image">
+                    <%= image_tag(game.picture.url, alt: "Game Robo") %>
+                  </div>
+                <% end %>
+                <%= link_to game do %>
+                  <h3><%= game.name %></h3>
+                <% end %>
+                <h4><%= game.download_count %> Downloads</h4>
+                <div class="wthreeratingaits">
+                  <%= render "shared/star", score: game.score %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </section>
+        <section id="section-line-2">
+          <div id="owl-demo1" class="owl-carousel text-center">
+            <% support.game_new.each do |game| %>
+              <div class="item">
+                <%= link_to game do %>
+                  <div class="agileinfoitem-image">
+                    <%= image_tag(game.picture.url, alt: "Game Robo") %>
+                  </div>
+                <% end %>
+                <%= link_to game do %>
+                  <h3><%= game.name %></h3>
+                <% end %>
+                <h4><%= game.download_count %> Downloads</h4>
+                <div class="wthreeratingaits">
+                  <%= render "shared/star", score: game.score %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </section>
+        <section id="section-line-3">
+          <div id="owl-demo2" class="owl-carousel text-center">
+            <% support.game_best_sellers.each do |game| %>
+              <div class="item">
+                <%= link_to game do %>
+                  <div class="agileinfoitem-image">
+                    <%= image_tag(game.picture.url, alt: "Game Robo") %>
+                  </div>
+                <% end %>
+                <%= link_to game do %>
+                  <h3><%= game.name %></h3>
+                <% end %>
+                <h4><%= game.download_count %> Downloads</h4>
+                <div class="wthreeratingaits">
+                  <%= render "shared/star", score: game.score %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </section>
+        <section id="section-line-4">
+          <div id="owl-demo3" class="owl-carousel text-center">
+            <% support.game_recommend.each do |game| %>
+              <div class="item">
+                <%= link_to game do %>
+                  <div class="agileinfoitem-image">
+                    <%= image_tag(game.picture.url, alt: "Game Robo") %>
+                  </div>
+                <% end %>
+                <%= link_to game do %>
+                  <h3><%= game.name %></h3>
+                <% end %>
+                <h4><%= game.download_count %> Downloads</h4>
+                <div class="wthreeratingaits">
+                  <%= render "shared/star", score: game.score %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </section>
+      </div><!-- /content -->
+    </div><!-- /tabs -->
+  </section>
+</div>

@@ -1,0 +1,23 @@
+<%= form_for @comment, remote: true do |f| %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.hidden_field :game_id, value: game_id %>
+  <%= f.hidden_field :score %>
+
+  <div class="uk-margin" uk-margin>
+    <div class="wthreeratingaits review star_review" style="margin-bottom: 0;">
+      <%= render "shared/star_review", score: @comment.score %>
+    </div>
+    <div class="uk-margin" style="margin-bottom: 10px;">
+      <%= f.text_area :content, id: "review_text_field", class: "uk-textarea", rows: 2, placeholder: "Enter your comment" %>
+    </div>
+    <% if !@comment.nil? && @comment.score == 0 %>
+      <div class="uk-margin">
+      <%= f.submit "Comment", id: "submit_comment", class: "uk-button uk-button-primary", style: "font-size:1em", data: {confirm: t("flash.0_star")} %>
+    </div>
+    <% else %>
+      <div class="uk-margin">
+      <%= f.submit "Comment", id: "submit_comment", class: "uk-button uk-button-primary", style: "font-size:1em" %>
+    </div>
+    <% end %>
+  </div>
+<% end %>
