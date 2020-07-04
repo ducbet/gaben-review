@@ -13,4 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require activestorage
+//= require home_page_template
 //= require_tree .
