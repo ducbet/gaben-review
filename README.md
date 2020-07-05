@@ -2,7 +2,7 @@
 > This is a game review web application using Ruby on Rails
 
 ## Demo
-https://gaben-review-94766.herokuapp.com/en
+![Demo.gif](./public/uploads/videos/gaben-review.gif)
 
 ## Features
 - Register, login, logout
