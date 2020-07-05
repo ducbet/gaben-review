@@ -5,6 +5,7 @@ ruby '2.7.1'
 
 gem 'rails-i18n', '~> 6.0.0' # For 6.0.0 or higher
 gem "bcrypt"
+gem "bootstrap-sass"
 gem "carrierwave"
 gem "config"
 gem "faker"
